@@ -1,0 +1,64 @@
+Bundle\TicketBundle\Entity\TicketHasProducts:
+    type: entity
+    table: ticket_has_products
+    repositoryClass: Bundle\TicketBundle\Doctrine\ORM\TicketHasProductsRepository
+    indexes:
+        fk_ticket_has_products_ticket1_idx:
+            columns:
+                - ticket_id
+        fk_ticket_has_products_product1_idx:
+            columns:
+                - product_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantity:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        unitPrice:
+            type: float
+            nullable: true
+            precision: 8
+            scale: 2
+            options:
+                fixed: false
+            column: unit_price
+        subTotal:
+            type: float
+            nullable: true
+            precision: 8
+            scale: 2
+            options:
+                fixed: false
+            column: sub_total
+    manyToOne:
+        products:
+            targetEntity: Bundle\ProductBundle\Entity\Product
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        ticket:
+            targetEntity: Bundle\TicketBundle\Entity\Ticket
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ticket_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

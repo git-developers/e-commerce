@@ -1,0 +1,11 @@
+.parallax >div {
+	position:relative;
+	background-position:top;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.parallax >div {
+		background-attachment: scroll !important;
+	}
+}

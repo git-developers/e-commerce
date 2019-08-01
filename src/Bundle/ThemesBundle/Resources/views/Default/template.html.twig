@@ -1,0 +1,153 @@
+{% import "ThemesBundle::Default/Macro/html.html.twig" as html %}
+
+{% import "ThemesBundle::Default/Macro/head.html.twig" as head %}
+{% import "ThemesBundle::Adminlte/Macro/bi3d.html.twig" as bi3d %}
+{% import "ThemesBundle::Adminlte/Macro/twitter.html.twig" as twitter %}
+{% import "ThemesBundle::Adminlte/Macro/open_graph.html.twig" as og %}
+
+{% spaceless %}
+
+{# https://livedemo00.template-help.com/opencart_53498 #}
+
+<!DOCTYPE html>
+
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    {{ head.meta_default() }}
+    {{ head.favicon() }}
+    {{ head.canonical() }}
+
+    {% block seo %}
+        {% block head %}
+
+            {#para copiar en otras paginas#}
+            {{ head.title() }}
+        {% endblock %}
+
+        {% block twitter %}
+            {{ twitter.card() }}
+
+            {#para copiar en otras paginas#}
+            {#{{ twitter.title() }}#}
+            {#{{ twitter.description() }}#}
+            {#{{ twitter.image() }}#}
+        {% endblock %}
+
+        {% block open_graph %}
+            {{ og.default() }}
+            {{ og.url() }}
+
+            {#para copiar en otras paginas#}
+            {#{{ og.title() }}#}
+            {#{{ og.description() }}#}
+            {#{{ og.image() }}#}
+        {% endblock %}
+
+        {% block bi3d %}
+            {#para copiar en otras paginas#}
+            {#{{ bi3d.art_id() }}#}
+            {#{{ bi3d.section() }}#}
+            {#{{ bi3d.art_title() }}#}
+            {#{{ bi3d.pub_date() }}#}
+        {% endblock %}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {% stylesheets
+            filter='cssrewrite'
+            'bundles/themes/default/css/bootstrap.min.css'
+            '@ThemesBundle/Resources/public/default/css/font-awesome.min.css'
+            '@ThemesBundle/Resources/public/default/css/font-awesome.min.css'
+            '@ThemesBundle/Resources/public/default/css/jquery.fancybox.css'
+            '@ThemesBundle/Resources/public/default/css/owl-carousel/owl.carousel.css'
+            '@ThemesBundle/Resources/public/default/css/livesearch.css'
+            '@ThemesBundle/Resources/public/default/css/photoswipe.css'
+            '@ThemesBundle/Resources/public/default/css/jquery.bxslider.css'
+            '@ThemesBundle/Resources/public/default/css/stylesheet.css'
+            '@ThemesBundle/Resources/public/default/css/superfish.css'
+            '@ThemesBundle/Resources/public/default/css/responsive.css'
+            '@ThemesBundle/Resources/public/default/css/parallax.css'
+            '@ThemesBundle/Resources/public/default/css/camera.css'
+            '@ThemesBundle/Resources/public/default/css/owl-carousel/owl.carousel.css'
+            '@ThemesBundle/Resources/public/default/css/owl-carousel/owl.transitions.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 9]>
+    <div style='clear:both;height:59px;padding:0 15px 0 15px;position:relative;z-index:10000;text-align:center;'>
+        <a href="https://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode">
+            <img src="https://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+    </div>
+    <![endif]-->
+
+    </head>
+
+    <body class="">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </body>
+
+{% block javascripts %}
+
+    {% javascripts
+        '@ThemesBundle/Resources/public/default/js/jquery-2.1.1.min.js'
+        '@ThemesBundle/Resources/public/default/js/bootstrap.min.js'
+        '@ThemesBundle/Resources/public/default/js/common.js'
+        '@ThemesBundle/Resources/public/default/js/tm-stick-up.js'
+        '@ThemesBundle/Resources/public/default/js/jquery.unveil.js'
+        '@ThemesBundle/Resources/public/default/js/jquery.bxslider.js'
+        '@ThemesBundle/Resources/public/default/js/jquery.fancybox.js'
+        '@ThemesBundle/Resources/public/default/js/jquery.elevatezoom.js'
+        '@ThemesBundle/Resources/public/default/js/superfish.js'
+        '@ThemesBundle/Resources/public/default/js/video/jquery.vide.min.js'
+        '@ThemesBundle/Resources/public/default/js/video/jquery.touchSwipe.min.js'
+        '@ThemesBundle/Resources/public/default/js/greensock/jquery.gsap.min.js'
+        '@ThemesBundle/Resources/public/default/js/greensock/TimelineMax.min.js'
+        '@ThemesBundle/Resources/public/default/js/greensock/TweenMax.min.js'
+        '@ThemesBundle/Resources/public/default/js/greensock/jquery.scrollmagic.min.js'
+        '@ThemesBundle/Resources/public/default/js/photo-swipe/klass.min.js'
+        '@ThemesBundle/Resources/public/default/js/photo-swipe/code.photoswipe.jquery-3.0.5.js'
+        '@ThemesBundle/Resources/public/default/js/photo-swipe/code.photoswipe-3.0.5.min.js'
+        '@ThemesBundle/Resources/public/default/js/owl-carousel/owl.carousel.min.js'
+        '@ThemesBundle/Resources/public/default/js/script.js'
+        '@ThemesBundle/Resources/public/default/js/parallax/cherry-fixed-parallax.js'
+        '@ThemesBundle/Resources/public/default/js/parallax/device.min.js'
+        '@ThemesBundle/Resources/public/default/js/camera/camera.js'
+        '@ThemesBundle/Resources/public/default/js/owl-carousel/owl.carousel.min.js'
+
+    %}
+    <script src="{{ asset_url }}"></script>
+
+    {% endjavascripts %}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1cifzXIbRKgokXmAaZ2WSkk-Xp6EZVSA&v=3.exp&signed_in=true"></script>
+
+    <script type="text/javascript">
+
+    </script>
+
+{% endblock %}
+
+
+
+
+
+
+
+</html>
+{% endspaceless %}
