@@ -63,18 +63,17 @@
         {% stylesheets
             filter='cssrewrite'
             'bundles/themes/default/css/bootstrap.min.css'
-            '@ThemesBundle/Resources/public/default/css/font-awesome.min.css'
-            '@ThemesBundle/Resources/public/default/css/font-awesome.min.css'
+            'bundles/themes/default/css/font-awesome.min.css'
             '@ThemesBundle/Resources/public/default/css/jquery.fancybox.css'
             '@ThemesBundle/Resources/public/default/css/owl-carousel/owl.carousel.css'
             '@ThemesBundle/Resources/public/default/css/livesearch.css'
             '@ThemesBundle/Resources/public/default/css/photoswipe.css'
             '@ThemesBundle/Resources/public/default/css/jquery.bxslider.css'
-            '@ThemesBundle/Resources/public/default/css/stylesheet.css'
+            'bundles/themes/default/css/stylesheet.css'
             '@ThemesBundle/Resources/public/default/css/superfish.css'
             '@ThemesBundle/Resources/public/default/css/responsive.css'
             '@ThemesBundle/Resources/public/default/css/parallax.css'
-            '@ThemesBundle/Resources/public/default/css/camera.css'
+            'bundles/themes/default/css/camera.css'
             '@ThemesBundle/Resources/public/default/css/owl-carousel/owl.carousel.css'
             '@ThemesBundle/Resources/public/default/css/owl-carousel/owl.transitions.css'
         %}
@@ -135,18 +134,13 @@
 
     {% endjavascripts %}
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=xxxx&v=3.exp&signed_in=true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ application_google_api_key }}&v=3.exp&signed_in=true"></script>
 
     <script type="text/javascript">
 
     </script>
 
 {% endblock %}
-
-
-
-
-
 
 
 </html>
