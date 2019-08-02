@@ -29,18 +29,25 @@ class Load_4_UserData extends AbstractFixture implements OrderedFixtureInterface
         $profileGuest = $this->getReference('profile-guest');
 	
 	    $pointOfSale_10 = $this->getReference('pointofsale-3');
-		
-
+	
+	
+	    /**
+	     * SUPER ADMIN
+	     */
         $entity = new User();
         $entity->setDni('12345688');
         $entity->setPassword('123');
-        $entity->setName('Carlos');
-        $entity->setLastName('Carlos');
-        $entity->setEmail('carlos@' . $this->applicationUrl);
+        $entity->setName('Alan');
+        $entity->setLastName('Garcia');
+        $entity->setEmail('admin@' . $this->applicationUrl);
         $entity->setProfile($profileSuperAdmin);
         $manager->persist($entity);
         $this->addReference('user-1', $entity);
-
+	
+	
+	    /**
+	     * PDV ADMIN
+	     */
         $entity = new User();
         $entity->setDni('87654321');
         $entity->setPassword('123');
