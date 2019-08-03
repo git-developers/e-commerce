@@ -158,6 +158,7 @@ class GridController extends BaseController
                     $this->persist($entity);
 
                     $varsRepository = $configuration->getRepositoryVars();
+                    
                     $entity = $this->getSerializeDecode($entity, $varsRepository->serialize_group_name);
                     $status = self::STATUS_SUCCESS;
                 }else{
@@ -225,6 +226,9 @@ class GridController extends BaseController
 			    ]
 		    );
 	    }
+	    
+	    
+	    
 
         //REPOSITORY
         $id = $request->get('id');

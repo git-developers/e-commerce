@@ -191,3 +191,23 @@ div.product-color {
     border-color: #367fa9;
     color: #fff !important;
 }
+
+.bg-tianos-1 {
+    background-color: #FAE828;
+}
+
+.color-tianos-1 {
+    color: #FAE828;
+}
+
+.bg-tianos-2 {
+    background-color: #E3BE19;
+}
+
+.bg-tianos-3 {
+    background-color: #FDBD1C;
+}
+
+.color-tianos-3 {
+    color: #FDBD1C;
+}

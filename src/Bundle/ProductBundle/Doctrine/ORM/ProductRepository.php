@@ -53,6 +53,27 @@ class ProductRepository extends TianosEntityRepository implements ProductReposit
     /**
      * {@inheritdoc}
      */
+    public function findFeatured(): array
+    {
+        $em = $this->getEntityManager();
+        $dql = "
+            SELECT product
+            FROM ProductBundle:Product product
+            WHERE
+            product.isActive = :active AND
+            product.isFeatured = :isFeatured
+            ";
+
+        $query = $em->createQuery($dql);
+        $query->setParameter('active', 1);
+        $query->setParameter('isFeatured', 1);
+
+        return $query->getResult();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findAllByCategoryId($categoryId): array
     {
 

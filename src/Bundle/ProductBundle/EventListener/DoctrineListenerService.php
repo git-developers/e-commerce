@@ -7,6 +7,7 @@ namespace Bundle\ProductBundle\EventListener;
 use Cocur\Slugify\Slugify;
 use Doctrine\Common\EventSubscriber;
 use Bundle\ProductBundle\Entity\Unit;
+use Bundle\ProductBundle\Entity\Brand;
 use Bundle\ProductBundle\Entity\Product;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -59,7 +60,10 @@ class DoctrineListenerService extends BaseDoctrineListenerService implements Eve
 
             return;
         } elseif ($entity instanceof Unit) {
-	       
+        
+        } elseif ($entity instanceof Brand) {
+	        $name = $entity->getName();
+	        $entity->setCreatedAt($this->setupCreatedAt($entity));
         }
     }
 
@@ -74,6 +78,10 @@ class DoctrineListenerService extends BaseDoctrineListenerService implements Eve
             $entity->setUpdatedAt($this->dateTime);
 
             return;
+        } elseif ($entity instanceof Brand) {
+	        $entity->setUpdatedAt($this->dateTime);
+	
+	        return;
         }
     }
 

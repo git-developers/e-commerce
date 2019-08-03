@@ -259,44 +259,16 @@
 
     </script>
 
+
 {% endblock %}
 
 {% block content %}
 
-
-    {#
-    <section class="content" style="background-color: #F0F2F6">
-
-        <div class="row" style="padding: 5px 0 15px 0">
-            <div class="col-lg-6 col-xs-6 text-right">
-                <a href="{{ path("backend_security_login_pdv", {slug: 'point-of-sale-1'}) }}" class="btn btn-primary">
-                    Backend Pdv
-                </a>
-            </div>
-            <div class="col-lg-6 col-xs-6">
-                <a href="{{ path("backend_dashboard_index") }}" class="btn btn-success">
-                    Backend
-                </a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12 col-xs-12" align="center">
-                <img width="70%" src="{{ asset('bundles/themes/default/images/bg.png') }}" alt="" />
-            </div>
-        </div>
-
-    </section>
-    #}
-
-
-
-    <!-- swipe menu -->
+    {#SWIPE MENU#}
     <div class="swipe">
         <div class="swipe-menu">
 
             <ul>
-
                 <li>
                     <a href="xxx" title="My Account">
                         <i class="fa fa-user"></i>
@@ -305,7 +277,7 @@
                 </li>
                 <li>
                     <a href="xxx">
-                        <i class="fa fa-user"></i> Create an account
+                        <i class="fa fa-user"></i> Crear una cuenta
                     </a>
                 </li>
                 <li>
@@ -410,7 +382,10 @@
             </ul>
         </div>
     </div>
+    {#SWIPE MENU#}
 
+
+    {#PAGE#}
     <div id="page">
 
         <div class="shadow"></div>
@@ -502,7 +477,7 @@
                 <div id="logo">
                     <a href="xxx">
                         <img
-                            src="{{ asset('bundles/themes/default/image/catalog/logo.png') }}"
+                            src="{{ asset('bundles/themes/default/image/logo.png') }}"
                             title="Tyres"
                             alt="Tyres"
                             class="img-responsive" />
@@ -534,7 +509,7 @@
                         </a>
                         <a href="xxx" title="Create an account">
                             <i class="fa fa-user"></i>
-                            <span>Create an account</span>
+                            <span>Crea una cuenta</span>
                         </a>
                     </div>
                 </div>
@@ -545,7 +520,7 @@
             <div class="container">
                 <div class="menu-shadow">
                     <div id="menu-gadget">
-                        <div id="menu-icon">Categories</div>
+                        <div id="menu-icon">Categorías</div>
                         <ul class="menu">
                             <li>
                                 <a href="xxx">Wheel covers</a>
@@ -621,31 +596,25 @@
                             <li class="first">
                                 <a href="xxx" title="Home">
                                     <i class="fa fa-home"></i>
-                                    <span>Home</span>
+                                    <span>Inicio</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="xxx" id="wishlist-total" title="Wish List">
                                     <i class="fa fa-heart"></i>
-                                    <span>
-                                    Wish List <span>0</span>
-                                </span>
+                                    <span>Wish List <span>0</span></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="xx" title="My Account">
                                     <i class="fa fa-user"></i>
-                                    <span>
-                                    My Account
-                                </span>
+                                    <span>Mi Cuenta</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="xxx" title="Shopping Cart">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>
-                                    Shopping Cart
-                                </span>
+                                    <span>Carrito de compras</span>
                                 </a>
                             </li>
                             <li>
@@ -666,6 +635,7 @@
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
+
                 </div>
             </div>
         </div>
@@ -835,1172 +805,219 @@
                             </div>
                         </div>
 
+
+                        {#FEATURED PRODUCTS#}
                         <div class="box featured">
 
                             <div class="box-heading">
-                                <h3>Featured products</h3>
+                                <h3>
+                                    Productos Destacados
+                                </h3>
                             </div>
 
                             <div class="box-content">
                                 <div class="product-layout">
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
 
-                                            <span class="stickers">
-                                                <span class="sale">Sale!</span>
-                                            </span>
+                                    {% for product in products %}
 
-                                            <a class="quickview" data-rel="details" href="#quickview_1">
-                                                Quick View
-                                            </a>
+                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 
-                                            <div class="quick_info">
-                                                <div id="quickview_1">
-                                                    <div>
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/Bridgestone1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                            <div class="product-thumb transition">
 
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-                                                            <div class="inf">
-                                                                <p class="quickview_manufacture manufacture manufacture">
-                                                                    Brand: <a href="xxx">Lorem ipsum</a>
-                                                                </p>
-                                                                <p class="product_model model">Model: Product 14</p>
-                                                                <div class="price">
-                                                                    <span class="price-new">$258.89</span>
-                                                                    <span class="price-old">$278.89</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('41');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('41');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('41');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="clear"></div>
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                <span class="stickers">
+                                                    <span class="sale">Sale!</span>
+                                                </span>
 
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                    allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560">
-                                                                </iframe>
-                                                                <p>
-                                                                    <b>Car owners</b>
-                                                                    know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b> to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/Bridgestone1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
+                                                <a class="quickview" data-rel="details" href="#quickview_{{ loop.index }}">
+                                                    Vista r&aacute;pida
                                                 </a>
-                                            </div>
 
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
-                                                    </a>
-                                                </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    <span class="price-new">$258.89</span>
-                                                    <span class="price-old">$278.89</span>
-                                                </div>
-                                            </div>
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('41');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
-
-                                            <span class="stickers"></span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_2">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_2">
-                                                    <div>
-
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsu"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/Fondmetal1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-                                                            <div class="inf">
-                                                                <p class="quickview_manufacture manufacture manufacture">
-                                                                    Brand:
+                                                <div class="quick_info">
+                                                    <div id="quickview_{{ loop.index }}">
+                                                        <div>
+                                                            <div class="left col-sm-4">
+                                                                <div class="quickview_image image">
                                                                     <a href="xxx">
-                                                                        Donec eu
+                                                                        {% if product.files|first is empty %}
+                                                                            <img
+                                                                                alt="Lorem ipsum"
+                                                                                title="Lorem ipsum"
+                                                                                class="img-responsive"
+                                                                                src="{{ asset('bundles/themes/default/image/catalog/default-270x270.png') }}" />
+                                                                        {% else %}
+                                                                            <img
+                                                                                alt="Lorem ipsum"
+                                                                                title="Lorem ipsum"
+                                                                                class="img-responsive"
+                                                                                src="{{ asset(product.files|first) }}" />
+                                                                        {% endif %}
                                                                     </a>
-                                                                </p>
-                                                                <p class="product_model model">Model: Product 1</p>
-                                                                <div class="price">
-                                                                    $258.89
                                                                 </div>
                                                             </div>
 
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('28');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('28');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('28');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="clear"></div>
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
+                                                            <div class="right col-sm-8">
+
+                                                                <h2>{{ product.description_short }}</h2>
+
+                                                                <div class="inf">
+                                                                    <p class="quickview_manufacture manufacture manufacture">
+                                                                        Marca: <a href="xxx">{{ product.brand.name }}</a>
+                                                                    </p>
+                                                                    <p class="product_model model">Modelo: {{ product.model }}</p>
+                                                                    <div class="price">
+                                                                        <span class="price-new">
+                                                                            S/ {{ product.price }}
+                                                                        </span>
+                                                                        <span class="price-old">
+                                                                            S/ {{ product.price + 36.78 }}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cart-button">
+                                                                    <button
+                                                                        class="btn btn-icon"
+                                                                        type="button"
+                                                                        data-toggle="tooltip"
+                                                                        title="Agregar al Wish List"
+                                                                        onclick="wishlist.add('41');">
+                                                                        <i class="fa fa-heart"></i>
+                                                                    </button>
+                                                                    <button
+                                                                        class="btn btn-icon"
+                                                                        type="button"
+                                                                        data-toggle="tooltip"
+                                                                        title="Comparar este Producto"
+                                                                        onclick="compare.add('41');">
+                                                                        <i class="fa fa-exchange"></i>
+                                                                    </button>
+                                                                    <button
+                                                                        class="btn btn-icon btn-add"
+                                                                        type="button"
+                                                                        data-toggle="tooltip"
+                                                                        title="Agregar a carrito"
+                                                                        onclick="cart.add('41');">
+                                                                        <i class="fa fa-shopping-cart"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="clear"></div>
+
+                                                                <div class="rating">
                                                                     <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                    allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560">
-                                                                </iframe>
-                                                                <p>
-                                                                    <b>Car owners</b> know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b> to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="image">
-                                                <a href="xxxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/Fondmetal1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
-
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
-                                                    </a>
-                                                </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
-
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('28');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
-
-                                            <span class="stickers">
-                                                <span class="new_pr">New!</span>
-                                            </span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_3">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_3">
-                                                    <div>
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/Adrenalin-Potenza1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-
-                                                            <div class="inf">
-                                                                <p class="product_model model">Model: Product5</p>
-
-                                                                <div class="price">
-                                                                    $258.89
+                                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                                    </span>
+                                                                        <span class="fa fa-stack">
+                                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                                    </span>
+                                                                        <span class="fa fa-stack">
+                                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                                    </span>
+                                                                        <span class="fa fa-stack">
+                                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                                    </span>
+                                                                        <span class="fa fa-stack">
+                                                                        <i class="fa fa-star fa-stack-2x"></i>
+                                                                    </span>
                                                                 </div>
                                                             </div>
-
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('49');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('49');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('49');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-
-                                                            <div class="clear"></div>
-
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                    <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
 
                                                             <div class="col-sm-12">
                                                                 <div class="quickview_description description">
                                                                     <iframe
-                                                                        src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                        allowfullscreen=""
-                                                                        frameborder="0"
-                                                                        height="315"
-                                                                        width="560">
+                                                                            src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
+                                                                            allowfullscreen=""
+                                                                            frameborder="0"
+                                                                            height="315"
+                                                                            width="560">
                                                                     </iframe>
-                                                                    <p>
-                                                                        <b>Car owners</b>
-                                                                        know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                        <b>24/7</b> to give the customer a premium shopping experience.
-                                                                    </p>
+                                                                    {{ product.description_long|raw }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/Adrenalin-Potenza1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
-
-                                            <div class="caption">
-                                                <div class="name">
+                                                <div class="image">
                                                     <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
+                                                        {% if product.files|first is empty %}
+                                                            <img
+                                                                alt="Lorem ipsum"
+                                                                title="Lorem ipsum"
+                                                                class="img-responsive"
+                                                                src="{{ asset('bundles/themes/default/image/catalog/default-270x270.png') }}" />
+                                                        {% else %}
+                                                            <img
+                                                                alt="Lorem ipsum"
+                                                                title="Lorem ipsum"
+                                                                class="img-responsive"
+                                                                src="{{ asset(product.files|first) }}" />
+                                                        {% endif %}
                                                     </a>
                                                 </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
 
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('49');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
-
-                                            <span class="stickers"></span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_4">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_4">
-                                                    <div>
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/PILOT-SPORT1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-
-                                                            <div class="inf">
-                                                                <p class="quickview_manufacture manufacture manufacture">
-                                                                    Brand:
-                                                                    <a href="xxx">
-                                                                        Quisque sodales
-                                                                    </a>
-                                                                </p>
-                                                                <p class="product_model model">Model: Product 3</p>
-
-                                                                <div class="price">
-                                                                    $258.89
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('30');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('30');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('30');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-
-                                                            <div class="clear"></div>
-
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                    allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560">
-                                                                </iframe>
-                                                                <p>
-                                                                    <b>Car owners</b>
-                                                                    know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b> to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
+                                                <div class="caption">
+                                                    <div class="name">
+                                                        <a href="xxx">
+                                                            {{ product.name }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="price-new">
+                                                            S/ {{ product.price }}
+                                                        </span>
+                                                        <span class="price-old">
+                                                            S/ {{ product.price + 36.78 }}
+                                                        </span>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/PILOT-SPORT1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
+                                                <div class="cart-button">
+                                                    <button
+                                                        class="btn btn-icon btn-add"
+                                                        type="button"
+                                                        data-toggle="tooltip"
+                                                        title="Add to Cart"
+                                                        onclick="cart.add('41');">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
 
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
+                                                    <a class="btn btn-primary" href="xxx">
+                                                        <span>
+                                                            <i class="fa fa-chevron-right"></i> Detalles
+                                                        </span>
                                                     </a>
                                                 </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
 
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('30');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
+                                                <div class="clear"></div>
                                             </div>
-                                            <div class="clear"></div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
+                                    {% endfor %}
 
-                                            <span class="stickers"></span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_5">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_5">
-                                                    <div>
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/Nokian-WR1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-
-                                                            <div class="inf">
-                                                                <p class="product_model model">Model: Product 4</p>
-                                                                <div class="price">
-                                                                    $258.89
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('31');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('31');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('31');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-
-                                                            <div class="clear"></div>
-
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                    allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560">
-                                                                </iframe>
-                                                                <p>
-                                                                    <b>Car owners</b> know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b> to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/Nokian-WR1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
-
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
-                                                    </a>
-                                                </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                            <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
-
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('31');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
-
-                                            <span class="stickers"></span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_6">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_6">
-                                                    <div>
-
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/ATS-Cup1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-                                                            <div class="inf">
-                                                                <p class="quickview_manufacture manufacture manufacture">
-                                                                    Brand:
-                                                                    <a href="xxx">
-                                                                        Fusce vestibulum
-                                                                    </a>
-                                                                </p>
-                                                                <p class="product_model model">Model: Product 6</p>
-
-                                                                <div class="price">
-                                                                    $258.89
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('33');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('33');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('33');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-
-                                                            <div class="clear"></div>
-
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                    allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560"></iframe>
-
-                                                                <p>
-                                                                    <b>Car owners</b>
-                                                                    know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b>
-                                                                    to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/ATS-Cup1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
-
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="https://livedemo00.template-help.com/opencart_53498/index.php?route=product/product&amp;product_id=33">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
-                                                    </a>
-                                                </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
-
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('33');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
-
-                                            <span class="stickers"></span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_7">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_7">
-                                                    <div>
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/Nokian-C1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-
-                                                            <div class="inf">
-                                                                <p class="quickview_manufacture manufacture manufacture">
-                                                                    Brand:
-                                                                    <a href="xxx">
-                                                                        Lorem ipsum
-                                                                    </a>
-                                                                </p>
-                                                                <p class="product_model model">
-                                                                    Model: Product 7
-                                                                </p>
-                                                                <div class="price">
-                                                                    $258.89
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('34');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('34');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('34');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-
-                                                            <div class="clear"></div>
-
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                        <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560">
-                                                                </iframe>
-
-                                                                <p>
-                                                                    <b>Car owners</b>
-                                                                    know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level.
-                                                                </p>
-                                                                <p>
-                                                                    <b>We keep track</b>
-                                                                    of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b>
-                                                                    to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/Nokian-C1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
-
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
-                                                    </a>
-                                                </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('34');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-thumb transition">
-
-                                            <span class="stickers"></span>
-
-                                            <a class="quickview" data-rel="details" href="#quickview_8">
-                                                Quick View
-                                            </a>
-
-                                            <div class="quick_info">
-                                                <div id="quickview_8">
-                                                    <div>
-                                                        <div class="left col-sm-4">
-                                                            <div class="quickview_image image">
-                                                                <a href="xxx">
-                                                                    <img
-                                                                        alt="Lorem ipsum"
-                                                                        title="Lorem ipsum"
-                                                                        class="img-responsive"
-                                                                        src="{{ asset('bundles/themes/default/image/catalog/PZERO-SILVER1-270x270.png') }}" />
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="right col-sm-8">
-                                                            <h2>Lorem ipsum dolor sit amet conse ctetuar adipisicing elit</h2>
-                                                            <div class="inf">
-                                                                <p class="quickview_manufacture manufacture manufacture">
-                                                                    Brand: <a href="xx">Donec eu</a>
-                                                                </p>
-                                                                <p class="product_model model">Model: Product 8</p>
-
-                                                                <div class="price">
-                                                                    $258.89
-                                                                </div>
-                                                            </div>
-                                                            <div class="cart-button">
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('35');">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('35');">
-                                                                    <i class="fa fa-exchange"></i>
-                                                                </button>
-                                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('35');">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="clear"></div>
-                                                            <div class="rating">
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star active fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                </span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="col-sm-12">
-                                                            <div class="quickview_description description">
-                                                                <iframe
-                                                                    src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                    allowfullscreen=""
-                                                                    frameborder="0"
-                                                                    height="315"
-                                                                    width="560">
-                                                                </iframe>
-                                                                <p>
-                                                                    <b>Car owners</b>
-                                                                    know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level.
-                                                                </p>
-                                                                <p>
-                                                                    <b>We keep track</b>
-                                                                    of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached
-                                                                    <b>24/7</b>
-                                                                    to give the customer a premium shopping experience.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="image">
-                                                <a href="xxx">
-                                                    <img
-                                                        alt="Lorem ipsum"
-                                                        title="Lorem ipsum"
-                                                        class="img-responsive lazy"
-                                                        data-src="{{ asset('bundles/themes/default/image/catalog/PZERO-SILVER1-270x270.png') }}"
-                                                        src="{{ asset('bundles/themes/default/image/catalog/preload.gif') }}" />
-                                                </a>
-                                            </div>
-                                            <div class="caption">
-                                                <div class="name">
-                                                    <a href="xxx">
-                                                        Lorem ipsum dolor sit amet conse ctetuar adipisicing elit
-                                                    </a>
-                                                </div>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star active fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                    <span class="fa fa-stack">
-                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="price">
-                                                    $258.89
-                                                </div>
-                                            </div>
-                                            <div class="cart-button">
-                                                <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('35');">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <a class="btn btn-primary" href="xxx">
-                                                    <span>
-                                                        <i class="fa fa-chevron-right"></i>
-                                                        Details
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
                                     <div class="clear"></div>
+
                                 </div>
                             </div>
                         </div>
+                        {#FEATURED PRODUCTS#}
+
 
                         <div id="parallax_0" class="parallax" >
 
@@ -2072,7 +1089,7 @@
                                 <i class="fa fa-thumbs-o-up"></i>
                                 <p>
                                     <a href="xxx">
-                                        satisfaction<br> 100% Guaranteed
+                                        satisfacción<br> 100% Garantizado
                                     </a>
                                 </p>
                             </div>
@@ -2081,7 +1098,7 @@
                                 <i class="fa fa-truck"></i>
                                 <p>
                                     <a href="xxx">
-                                        Free shipping<br> on orders over $99
+                                        Envío gratis<br> en pedidos superiores a $ 99
                                     </a>
                                 </p>
                             </div>
@@ -2090,196 +1107,11 @@
                                 <i class="fa fa-refresh"></i>
                                 <p>
                                     <a href="xxx">
-                                        7 Day<br> Easy return
+                                        7 Días<br> Fácil retorno
                                     </a>
                                 </p>
                             </div>
                         </div>
-
-                        <script>
-                            window.onload = function() {
-
-                                var mapelement = document.getElementById('map');
-
-                                if(mapelement){
-
-                                    function initialize() {
-
-                                        var locations = [
-                                            ['Tyres', 42.332, -83.046, 2],
-                                            ['Tyres', 42.649224, -73.796384, 1]
-                                        ];
-                                        var styles = [
-                                            {
-                                                "featureType": "landscape",
-                                                "stylers": [
-                                                    {
-                                                        "saturation": -100
-                                                    },
-                                                    {
-                                                        "lightness": 65
-                                                    },
-                                                    {
-                                                        "visibility": "on"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "poi",
-                                                "stylers": [
-                                                    {
-                                                        "saturation": -100
-                                                    },
-                                                    {
-                                                        "lightness": 51
-                                                    },
-                                                    {
-                                                        "visibility": "simplified"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "road.highway",
-                                                "stylers": [
-                                                    {
-                                                        "saturation": -100
-                                                    },
-                                                    {
-                                                        "visibility": "simplified"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "road.arterial",
-                                                "stylers": [
-                                                    {
-                                                        "saturation": -100
-                                                    },
-                                                    {
-                                                        "lightness": 30
-                                                    },
-                                                    {
-                                                        "visibility": "on"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "road.local",
-                                                "stylers": [
-                                                    {
-                                                        "saturation": -100
-                                                    },
-                                                    {
-                                                        "lightness": 40
-                                                    },
-                                                    {
-                                                        "visibility": "on"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "transit",
-                                                "stylers": [
-                                                    {
-                                                        "saturation": -100
-                                                    },
-                                                    {
-                                                        "visibility": "simplified"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "administrative.province",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "off"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "water",
-                                                "elementType": "labels",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "on"
-                                                    },
-                                                    {
-                                                        "lightness": -25
-                                                    },
-                                                    {
-                                                        "saturation": -100
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "water",
-                                                "elementType": "geometry",
-                                                "stylers": [
-                                                    {
-                                                        "hue": "#ffff00"
-                                                    },
-                                                    {
-                                                        "lightness": -25
-                                                    },
-                                                    {
-                                                        "saturation": -97
-                                                    }
-                                                ]
-                                            }
-                                        ];
-
-                                        var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
-                                        var map;
-                                        var marker, i;
-
-                                        var mapOptions = {
-                                            zoom: 10,
-                                            scrollwheel: false,
-                                            center: new google.maps.LatLng(42.649224, -73.796384),
-                                            mapTypeControl: false,
-                                            panControl: true,
-                                            scaleControl: false,
-                                            streetViewControl: true,
-                                            mapTypeControlOptions: {
-                                                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-                                            }
-                                        };
-                                        google.maps.event.addDomListener(window, "resize", function() {
-                                            var center = map.getCenter();
-                                            google.maps.event.trigger(map, "resize");
-                                            map.setCenter(center);
-                                        });
-
-                                        map = new google.maps.Map(document.getElementById('map'),mapOptions);
-                                        map.mapTypes.set('map_style', styledMap);
-                                        map.setMapTypeId('map_style');
-                                        var markerImage = "{{ asset('bundles/themes/default/image/catalog/gmap_marker.png') }}";
-
-                                        infowindow = new google.maps.InfoWindow(),
-                                            markers = [];
-
-                                        for (i = 0; i < locations.length; i++) {
-
-                                            markers[i] = new google.maps.Marker({
-                                                map: map,
-                                                icon: markerImage,
-                                                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                                                animation: null
-                                            });
-                                            var contentString = 'Company Inc., 8901 Marmora Road, Glasgow, D04 89GR';
-                                            var infowindow = new google.maps.InfoWindow({
-                                                content: contentString
-                                            });
-                                            google.maps.event.addListener(markers[i], "click", function() {
-                                                infowindow.open(map, this);
-                                            });
-
-                                        }
-                                    }
-
-                                    initialize();
-                                } };
-                        </script>
                     </div>
                 </div>
             </div>
@@ -2292,215 +1124,30 @@
                 <div id="map"></div>
             </div>
 
-            <script>
-                window.onload = function() {
-
-                    var mapelement=document.getElementById('map');
-
-                    if(mapelement){
-
-                        function initialize() {
-
-                            var locations = [
-                                ['Tyres', 42.332, -83.046, 2],
-                                ['Tyres', 42.649224, -73.796384, 1]
-                            ];
-                            var styles = [
-                                {
-                                    "featureType": "landscape",
-                                    "stylers": [
-                                        {
-                                            "saturation": -100
-                                        },
-                                        {
-                                            "lightness": 65
-                                        },
-                                        {
-                                            "visibility": "on"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "poi",
-                                    "stylers": [
-                                        {
-                                            "saturation": -100
-                                        },
-                                        {
-                                            "lightness": 51
-                                        },
-                                        {
-                                            "visibility": "simplified"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "road.highway",
-                                    "stylers": [
-                                        {
-                                            "saturation": -100
-                                        },
-                                        {
-                                            "visibility": "simplified"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "road.arterial",
-                                    "stylers": [
-                                        {
-                                            "saturation": -100
-                                        },
-                                        {
-                                            "lightness": 30
-                                        },
-                                        {
-                                            "visibility": "on"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "road.local",
-                                    "stylers": [
-                                        {
-                                            "saturation": -100
-                                        },
-                                        {
-                                            "lightness": 40
-                                        },
-                                        {
-                                            "visibility": "on"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "transit",
-                                    "stylers": [
-                                        {
-                                            "saturation": -100
-                                        },
-                                        {
-                                            "visibility": "simplified"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "administrative.province",
-                                    "stylers": [
-                                        {
-                                            "visibility": "off"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "water",
-                                    "elementType": "labels",
-                                    "stylers": [
-                                        {
-                                            "visibility": "on"
-                                        },
-                                        {
-                                            "lightness": -25
-                                        },
-                                        {
-                                            "saturation": -100
-                                        }
-                                    ]
-                                },
-                                {
-                                    "featureType": "water",
-                                    "elementType": "geometry",
-                                    "stylers": [
-                                        {
-                                            "hue": "#ffff00"
-                                        },
-                                        {
-                                            "lightness": -25
-                                        },
-                                        {
-                                            "saturation": -97
-                                        }
-                                    ]
-                                }
-                            ];
-
-                            var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
-                            var map;
-                            var marker, i;
-
-                            var mapOptions = {
-                                zoom: 10,
-                                scrollwheel: false,
-                                center: new google.maps.LatLng(42.649224, -73.796384),
-                                mapTypeControl: false,
-                                panControl: true,
-                                scaleControl: false,
-                                streetViewControl: true,
-                                mapTypeControlOptions: {
-                                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-                                }
-                            };
-                            google.maps.event.addDomListener(window, "resize", function() {
-                                var center = map.getCenter();
-                                google.maps.event.trigger(map, "resize");
-                                map.setCenter(center);
-                            });
-
-                            map = new google.maps.Map(document.getElementById('map'),mapOptions);
-                            map.mapTypes.set('map_style', styledMap);
-                            map.setMapTypeId('map_style');
-                            var markerImage = "{{ asset('bundles/themes/default/image/catalog/gmap_marker.png') }}";
-
-                            infowindow = new google.maps.InfoWindow(),
-                                markers = [];
-
-                            for (i = 0; i < locations.length; i++) {
-
-                                markers[i] = new google.maps.Marker({
-                                    map: map,
-                                    icon: markerImage,
-                                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                                    animation: null
-                                });
-                                var contentString = 'Company Inc., 8901 Marmora Road, Glasgow, D04 89GR';
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: contentString
-                                });
-                                google.maps.event.addListener(markers[i], "click", function() {
-                                    infowindow.open(map, this);
-                                });
-
-                            }
-                        }
-
-                        initialize();
-                    } };
-            </script>
-
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="footer_box">
-                            <h5>Information</h5>
+                            <h5>Información</h5>
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>About
+                                        <i class="fa fa-angle-right"></i> Nosotros
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Delivery
+                                        <i class="fa fa-angle-right"></i> Entrega
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Privacy Policy
+                                        <i class="fa fa-angle-right"></i> Política de privacidad
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Terms &amp; Conditions
+                                        <i class="fa fa-angle-right"></i> Términos &amp; Condiciones
                                     </a>
                                 </li>
                             </ul>
@@ -2513,17 +1160,17 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Contact Us
+                                        <i class="fa fa-angle-right"></i> Contáctenos
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Returns
+                                        <i class="fa fa-angle-right"></i> Devoluciones
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Site Map
+                                        <i class="fa fa-angle-right"></i> Site Map
                                     </a>
                                 </li>
                             </ul>
@@ -2536,22 +1183,22 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Brands
+                                        <i class="fa fa-angle-right"></i> Marcas
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Gift Vouchers
+                                        <i class="fa fa-angle-right"></i> Gift Cards
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Affiliates
+                                        <i class="fa fa-angle-right"></i> Afiliados
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Specials
+                                        <i class="fa fa-angle-right"></i> Especiales
                                     </a>
                                 </li>
                             </ul>
@@ -2560,26 +1207,26 @@
 
                     <div class="col-sm-2">
                         <div class="footer_box">
-                            <h5>My Account</h5>
+                            <h5>Mi cuenta</h5>
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>My Account
+                                        <i class="fa fa-angle-right"></i> Mi cuenta
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Order History
+                                        <i class="fa fa-angle-right"></i> Historial de pedidos
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Wish List
+                                        <i class="fa fa-angle-right"></i> Lista de deseos
                                     </a>
                                 </li>
                                 <li>
                                     <a href="xxx">
-                                        <i class="fa fa-angle-right"></i>Newsletter
+                                        <i class="fa fa-angle-right"></i> Newsletter
                                     </a>
                                 </li>
                             </ul>
@@ -2587,10 +1234,10 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <h5>Follow Us</h5>
+                        <h5>Síguenos</h5>
                         <ul class="list-unstyled social">
                             <li>
-                                <a data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/login/">
+                                <a data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/login">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                             </li>
@@ -2606,7 +1253,8 @@
                             </li>
                         </ul>
                         <div class="copyright">
-                            Powered By <a href="https://www.opencart.com">OpenCart</a><br /> Tyres &copy; 2019
+                            Powered By <a href="http://system.tianos.com">Tianos.com</a>
+                            <br /> Tianos &copy; {{ "now"|date("Y") }}
                         </div>
                     </div>
                 </div>
@@ -2615,6 +1263,6 @@
         </footer>
 
     </div>
-
+    {#PAGE#}
 
 {% endblock %}

@@ -144,6 +144,8 @@ $(document).ready(function() {
 	});
 });
 
+
+
 // Cart add remove functions
 var cart = {
 	'add': function(product_id, quantity) {

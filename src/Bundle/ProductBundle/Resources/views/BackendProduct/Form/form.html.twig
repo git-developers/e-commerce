@@ -22,9 +22,9 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <i class="fa fa-fw fa-arrows-h"></i>
-                {{ form_label(form.size) }}
-                {{ form_widget(form.size) }}
+                <i class="fa fa-fw fa-tag"></i>
+                {{ form_label(form.brand) }}
+                {{ form_widget(form.brand) }}
             </div>
         </div>
     </div>
@@ -59,6 +59,47 @@
                 <i class="fa fa-fw fa-adjust"></i>
                 {{ form_label(form.color) }}
                 {{ form_widget(form.color) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <i class="fa fa-fw fa-align-left"></i>
+                {{ form_label(form.descriptionShort) }}
+                {{ form_widget(form.descriptionShort) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <i class="fa fa-fw fa-square"></i>
+                {{ form_label(form.model) }}
+                {{ form_widget(form.model) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <i class="fa fa-fw fa-align-left"></i>
+                {{ form_label(form.descriptionLong) }}
+                {{ form_widget(form.descriptionLong) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <i class="fa fa-fw fa-star"></i>
+                {{ form_label(form.isFeatured) }}
+                {{ form_widget(form.isFeatured) }}
             </div>
         </div>
     </div>

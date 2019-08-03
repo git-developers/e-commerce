@@ -19,7 +19,7 @@ backend_product_index:
                 files_upload:
                     class_name: Product
                     file_type: images
-                    filter: file_thumb_500_417
+                    filter: file_thumb_270_270
                     route:
                         create: backend_files_create
                         open_modal: backend_files_open_modal
@@ -109,22 +109,24 @@ backend_product_index:
                               title: '<i class="fa fa-fw fa-adjust"></i> Color'
                               className: padding-0 text-center
                               filter: 0
-                        - obj: obj.size
-                          defs:
-                              targets: 4
-                              orderable: 1
-                              sorting: 1
-                              title: '<i class="fa fa-fw fa-arrows-h"></i> Talla'
-                              className: text-center
-                              filter: 0
                         - obj: obj.stock
                           defs:
-                              targets: 5
+                              targets: 4
                               orderable: 1
                               sorting: 1
                               title: Stock
                               filter: 0
                               className: text-center
+                        - obj: obj.is_featured
+                          options:
+                              property: " return (obj.is_featured) ? '<i class=\"fa fa-2x fa-fw fa-star color-tianos-3\"></i>' : '' "
+                          defs:
+                              targets: 5
+                              orderable: 1
+                              sorting: 1
+                              title: '<i class="fa fa-fw fa-star-o"></i> Featured'
+                              className: text-center
+                              filter: 0
                         - obj: " '<button class=\"btn btn-xs btn-danger\"><i class=\"fa fa-fw fa-trash\"></i></button>' "
                           defs:
                               targets: 6

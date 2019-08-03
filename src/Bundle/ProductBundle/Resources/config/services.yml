@@ -10,6 +10,9 @@ services:
           - { name: doctrine.event_listener, event: postLoad }
           - { name: doctrine.event_listener, event: postRemove }
 
+
+    # *************
+    # Product
     tianos.api.controller.product:
         class: Bundle\ProductBundle\Controller\ApiController
         arguments: [ Bundle\GridBundle\Factory\RequestConfigurationFactoryInterface ]
@@ -38,10 +41,29 @@ services:
         arguments: ['@doctrine.orm.entity_manager']
         tags:
             - { name: form.type, alias: tianos.type.product }
+    # *************
 
 
-#    tianos.controller.grid:
-#        class: Bundle\GridBundle\Controller\GridController
-#        arguments: [ Bundle\GridBundle\Controller\RequestConfigurationFactoryInterface ]
-#        tags:
-#            - { name: tianos.controller.grid, alias: tianos.controller.grid }
+    # *************
+    # Brand
+    tianos.backend.controller.brand:
+        class: Bundle\ProductBundle\Controller\BrandController
+        arguments: [ Bundle\GridBundle\Factory\RequestConfigurationFactoryInterface ]
+        tags:
+            - { name: tianos.backend.controller.brand, alias: tianos.backend.controller.brand }
+
+    tianos.repository.brand:
+        class: Dummy
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments: [ Bundle\ProductBundle\Entity\Brand ]
+
+    tianos.type.brand:
+        class: Bundle\ProductBundle\Form\Type\BrandType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: tianos.type.brand }
+    # *************
+
+
+
+

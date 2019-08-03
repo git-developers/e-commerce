@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="#">
-        <img src="https://www.softwaresuggest.com/blog/wp-content/uploads/2019/05/ERP-System-Modules.png" />
+        <img src="https://www.x-cart.com/wp-content/uploads/2019/01/ecommerce.jpg" />
     </a>
 </h1>
 
@@ -18,8 +18,11 @@
 COLOR 
 =====
 
-* ORANGE: #F4B228
-* BLACK: #343434 
+* YELLO PATITO COLOR 1: #FBE928
+* COLOR 2: #E3BE19
+* COLOR 3: #FDBD1C
+* DARK COLOR 4: #3B3709
+* DARK COLOR 5: #2f2f2f
 
 
 GIT

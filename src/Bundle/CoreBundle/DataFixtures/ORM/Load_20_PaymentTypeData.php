@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class Load_19_PaymentTypeData extends AbstractFixture implements OrderedFixtureInterface
+class Load_20_PaymentTypeData extends AbstractFixture implements OrderedFixtureInterface
 {
 
     protected $applicationUrl;

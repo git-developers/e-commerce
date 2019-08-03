@@ -7,13 +7,17 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Bundle\CategoryBundle\Entity\Category;
 use Bundle\ProductBundle\Entity\Unit;
+use Bundle\ProductBundle\Entity\Brand;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+
 
 class ProductType extends AbstractType
 {
@@ -23,18 +27,6 @@ class ProductType extends AbstractType
 
     public function __construct(EntityManager $em) {
         $this->em = $em;
-    }
-
-    public function getSizes() {
-        return [
-        	6 => 6,
-        	7 => 7,
-        	8 => 8,
-        	9 => 9,
-        	10 => 10,
-        	11 => 11,
-        	12 => 12,
-        ];
     }
 
     public function getCategory($id) {
@@ -88,6 +80,26 @@ class ProductType extends AbstractType
                 ],
                 $this->getDataType($options)
             ))
+	        ->add('brand', EntityType::class, array_merge(
+		        [
+			        'class' => Brand::class,
+			        'query_builder' => function(EntityRepository $er) {
+				        return $er->findAllObjects();
+			        },
+			        'placeholder' => '[ Escoge una opción ]',
+			        'empty_data' => null,
+			        'required' => true,
+			        'label' => 'Brand',
+			        'label_attr' => [
+				        'class' => ''
+			        ],
+			        'attr' => [
+				        'class' => 'form-control',
+				        'placeholder' => '',
+			        ],
+		        ],
+		        $this->getDataType($options)
+	        ))
             ->add('unit', EntityType::class, array_merge(
                 [
                     'class' => Unit::class,
@@ -108,8 +120,18 @@ class ProductType extends AbstractType
                 ],
                 $this->getDataType($options)
             ))
+            ->add('model', TextType::class, [
+                'label' => 'model',
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'model',
+                ],
+            ])
             ->add('code', TextType::class, [
-                'label' =>' code',
+                'label' => 'code',
                 'label_attr' => [
                     'class' => ''
                 ],
@@ -119,7 +141,7 @@ class ProductType extends AbstractType
                 ],
             ])
             ->add('color', ColorType::class, [
-                'label' =>' color',
+                'label' => 'color',
                 'label_attr' => [
                     'class' => ''
                 ],
@@ -129,7 +151,7 @@ class ProductType extends AbstractType
                 ],
             ])
             ->add('name', TextType::class, [
-                'label' =>' Nombre',
+                'label' => 'Nombre',
                 'label_attr' => [
                     'class' => ''
                 ],
@@ -139,7 +161,7 @@ class ProductType extends AbstractType
                 ],
             ])
             ->add('stock', IntegerType::class, [
-                'label' =>' Stock',
+                'label' => 'Stock',
                 'label_attr' => [
                     'class' => ''
                 ],
@@ -148,17 +170,39 @@ class ProductType extends AbstractType
                     'placeholder' => '##',
                 ],
             ])
-            ->add('size', ChoiceType::class, [
-                'label' =>' Talla',
-	            'choices' => $this->getSizes(),
-                'label_attr' => [
-                    'class' => ''
-                ],
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => '##',
-                ],
-            ])
+	        ->add('isFeatured', CheckboxType::class, [
+		        'label' => 'Featured',
+		        'required' => false,
+		        'label_attr' => [
+			        'class' => ''
+		        ],
+		        'attr' => [
+			        'class' => '',
+			        'placeholder' => 'isFeatured',
+		        ],
+	        ])
+	        ->add('descriptionShort', TextType::class, [
+		        'label' => 'Descripción corta',
+		        'required' => true,
+		        'label_attr' => [
+			        'class' => ''
+		        ],
+		        'attr' => [
+			        'class' => 'form-control',
+			        'placeholder' => 'descripción',
+		        ],
+	        ])
+	        ->add('descriptionLong', TextareaType::class, [
+		        'label' =>'Descripción larga',
+		        'required' => false,
+		        'label_attr' => [
+			        'class' => ''
+		        ],
+		        'attr' => [
+			        'class' => 'form-control',
+			        'placeholder' => 'descripción',
+		        ],
+	        ])
         ;
     }
     

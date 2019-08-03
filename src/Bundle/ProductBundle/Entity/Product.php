@@ -24,6 +24,7 @@ class Product
      *
      * @JMSS\Groups({
      *     "crud",
+     *     "frontend",
      *     "ticket"
      * })
      */
@@ -49,6 +50,7 @@ class Product
 	 *
 	 * @JMSS\Groups({
 	 *     "crud",
+	 *     "frontend",
 	 *     "ticket"
 	 * })
 	 */
@@ -59,10 +61,33 @@ class Product
      *
      * @JMSS\Groups({
      *     "crud",
+     *     "frontend",
      *     "ticket"
      * })
      */
     private $name;
+    
+    /**
+     * @var string
+     *
+     * @JMSS\Groups({
+     *     "crud",
+     *     "frontend",
+     *     "ticket"
+     * })
+     */
+    private $descriptionShort;
+    
+    /**
+     * @var string
+     *
+     * @JMSS\Groups({
+     *     "crud",
+     *     "frontend",
+     *     "ticket"
+     * })
+     */
+    private $descriptionLong;
 
     /**
      * @var string
@@ -70,14 +95,14 @@ class Product
     private $slug;
 
     /**
-     * @var integer
+     * @var string
      *
      * @JMSS\Groups({
      *     "crud",
-     *     "ticket"
+     *     "frontend",
      * })
      */
-    private $size;
+    private $model;
 
     /**
      * @var integer
@@ -118,7 +143,16 @@ class Product
     /**
      * @var boolean
      */
-    private $isActive = '1';
+    private $isActive = true;
+
+    /**
+     * @var boolean
+     *
+     * @JMSS\Groups({
+     *     "crud"
+     * })
+     */
+    private $isFeatured = false;
 
     /**
      * @var \Bundle\CategoryBundle\Entity\Category
@@ -133,6 +167,20 @@ class Product
      * })
      */
     private $category;
+
+    /**
+     * @var \Bundle\ProductBundle\Entity\Brand
+     *
+     * @ORM\ManyToOne(targetEntity="Bundle\ProductBundle\Entity\Brand")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     * })
+     *
+     * @JMSS\Groups({
+     *     "frontend"
+     * })
+     */
+    private $brand;
 	
 	/**
 	 * @var \Bundle\ProductBundle\Entity\Unit
@@ -140,6 +188,10 @@ class Product
 	 * @ORM\ManyToOne(targetEntity="Bundle\ProductBundle\Entity\Unit")
 	 * @ORM\JoinColumns({
 	 *   @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
+	 * })
+	 *
+	 * @JMSS\Groups({
+	 *     "crud"
 	 * })
 	 */
 	private $unit;
@@ -158,6 +210,7 @@ class Product
 	 *
 	 * @JMSS\Groups({
 	 *     "crud",
+	 *     "frontend",
 	 *     "ticket"
 	 * })
 	 */
@@ -211,22 +264,6 @@ class Product
 	public function setColor(string $color)
 	{
 		$this->color = $color;
-	}
-	
-	/**
-	 * @return int
-	 */
-	public function getSize() //: int
-	{
-		return $this->size;
-	}
-	
-	/**
-	 * @param int $size
-	 */
-	public function setSize(int $size)
-	{
-		$this->size = $size;
 	}
 	
 	/**
@@ -508,6 +545,93 @@ class Product
 	{
 		$this->files = $files;
 	}
+	
+	/**
+	 * @return bool
+	 */
+	public function isFeatured() //: bool
+	{
+		return $this->isFeatured;
+	}
+	
+	/**
+	 * @param bool $isFeatured
+	 */
+	public function setIsFeatured(bool $isFeatured)
+	{
+		$this->isFeatured = $isFeatured;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getDescriptionShort() //: string
+	{
+		return $this->descriptionShort;
+	}
+	
+	/**
+	 * @param string $descriptionShort
+	 */
+	public function setDescriptionShort(string $descriptionShort)
+	{
+		$this->descriptionShort = $descriptionShort;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getDescriptionLong() //: string
+	{
+		return $this->descriptionLong;
+	}
+	
+	/**
+	 * @param string $descriptionLong
+	 */
+	public function setDescriptionLong(string $descriptionLong)
+	{
+		$this->descriptionLong = $descriptionLong;
+	}
+	
+	/**
+	 * @return Brand
+	 */
+	public function getBrand()//: Brand
+	{
+		return $this->brand;
+	}
+	
+	/**
+	 * Set brand
+	 *
+	 * @param \Bundle\ProductBundle\Entity\Brand $brand
+	 *
+	 * @return Brand
+	 */
+	public function setBrand(\Bundle\ProductBundle\Entity\Brand $brand = null)
+	{
+		$this->brand = $brand;
+		
+		return $this;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getModel() //: string
+	{
+		return $this->model;
+	}
+	
+	/**
+	 * @param string $model
+	 */
+	public function setModel(string $model)
+	{
+		$this->model = $model;
+	}
+	
 	
 }
 

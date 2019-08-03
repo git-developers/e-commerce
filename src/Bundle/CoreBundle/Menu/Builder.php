@@ -204,10 +204,11 @@ class Builder implements ContainerAwareInterface
         ->setAttribute('allow_angle', true)
         ->setAttribute('class', 'treeview')
         ->setAttribute('class', $this->activeRoute([
-            'backend_product_index',
+	        'backend_brand_index',
+	        'backend_product_index',
             'backend_category_tree_index',
         ]))
-        ->setAttribute('icon', 'fa-fw fa-dropbox')
+        ->setAttribute('icon', 'fa-fw fa-cubes')
         ->setDisplay($isGranted)
         ;
 
@@ -222,10 +223,18 @@ class Builder implements ContainerAwareInterface
         ->setDisplay($isGranted)
         ;
 
+        $menu['Inventario']->addChild('Brand', [
+            'route' => 'backend_brand_index'
+        ])
+        ->setAttribute('icon', self::CIRCLE_2)
+        ->setAttribute('class', $this->activeRoute('backend_brand_index'))
+        ->setDisplay($isGranted)
+        ;
+
         $menu['Inventario']->addChild('Producto', [
             'route' => 'backend_product_index'
         ])
-        ->setAttribute('icon', self::CIRCLE_2)
+        ->setAttribute('icon', self::CIRCLE_3)
         ->setAttribute('class', $this->activeRoute('backend_product_index'))
         ->setDisplay($isGranted)
         ;
@@ -233,58 +242,6 @@ class Builder implements ContainerAwareInterface
          * STOCK - INVENTORY
          */
 		
-
-
-
-        
-
-        /**
-         * INVENTORY
-         */
-        $isGranted = $this->isGranted([
-	        Category::ROLE_CATEGORY_VIEW
-        ]);
-
-        $menu->addChild('Inventario', [
-            'route' => 'backend_product_index',
-            'extras' => ['safe_label' => true],
-            'childrenAttributes' => [
-                'class' => 'treeview-menu',
-            ],
-        ])
-            ->setAttribute('allow_angle', true)
-            ->setAttribute('class', 'treeview')
-            ->setAttribute('class', $this->activeRoute([
-                'backend_product_index',
-                'backend_category_tree_index',
-            ]))
-            ->setAttribute('icon', 'fa-fw fa-cubes')
-            ->setDisplay($isGranted)
-        ;
-
-        $menu['Inventario']->addChild('Categoria', [
-            'route' => 'backend_category_tree_index',
-            'routeParameters' => [
-                'entity_type' => Category::TYPE_PRODUCT
-            ]
-        ])
-            ->setAttribute('icon', self::CIRCLE_1)
-            ->setAttribute('class', $this->activeRoute('backend_category_tree_index'))
-            ->setDisplay($isGranted)
-        ;
-
-        $menu['Inventario']->addChild('Producto', [
-            'route' => 'backend_product_index'
-        ])
-            ->setAttribute('icon', self::CIRCLE_2)
-            ->setAttribute('class', $this->activeRoute('backend_product_index'))
-            ->setDisplay($isGranted)
-        ;
-        /**
-         * INVENTORY
-         */
-		
-
         
         
 

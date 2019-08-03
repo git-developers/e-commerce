@@ -43,13 +43,12 @@ Bundle\ProductBundle\Entity\Product:
             length: 150
             options:
                 fixed: false
-        size:
-            type: integer
+        isFeatured:
+            type: boolean
             nullable: true
-            length: 11
             options:
-                unsigned: false
-            column: size
+                default: '1'
+            column: is_featured
         stock:
             type: integer
             nullable: true
@@ -63,12 +62,27 @@ Bundle\ProductBundle\Entity\Product:
             length: 150
             options:
                 fixed: false
-#        image:
-#            type: string
-#            nullable: true
-#            length: 45
-#            options:
-#                fixed: false
+        model:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: model
+        descriptionShort:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: description_short
+        descriptionLong:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: description_long
         createdAt:
             type: datetime
             nullable: false
@@ -119,7 +133,15 @@ Bundle\ProductBundle\Entity\Product:
                 unit_id:
                     referencedColumnName: id
             orphanRemoval: false
+        brand:
+            targetEntity: Bundle\ProductBundle\Entity\Brand
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                unit_id:
+                    referencedColumnName: id
+            orphanRemoval: false
     lifecycleCallbacks: {  }
-#    lifecycleCallbacks:
-#        prePersist: [ doStuffOnPrePersist, doOtherStuffOnPrePersistToo ]
-#        postPersist: [ doStuffOnPostPersist ]
+

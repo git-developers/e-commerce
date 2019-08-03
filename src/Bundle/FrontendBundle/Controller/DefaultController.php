@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Bundle\FrontendBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Bundle\CoreBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Webmozart\Assert\Assert;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
 
     /**
@@ -25,10 +25,19 @@ class DefaultController extends Controller
         $vars = $options['vars'] ?? null;
         Assert::notNull($template, 'Template is not configured.');
 
-        $googleDriveFiles = $this->get('tianos.repository.google.drive')->findAllHasThumbnail();
-
+        //$googleDriveFiles = $this->get('tianos.repository.google.drive')->findAllHasThumbnail();
+	
+	    $products = $this->get('tianos.repository.product')->findFeatured();
+	    $products = $this->rowImages($products);
+	    $products = $this->getSerializeDecode($products, 'frontend');
+	
+//	    echo "POLLO:: <pre>";
+//	    print_r($products);
+//	    exit;
+        
+        
         return $this->render($template, [
-            'googleDriveFiles' => $googleDriveFiles,
+            'products' => $products,
             'vars' => $vars,
         ]);
 
