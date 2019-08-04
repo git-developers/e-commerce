@@ -15,7 +15,7 @@ interface OrderRepositoryInterface extends RepositoryInterface
 //     */
 //    public function gatazo(): array;
 
-    public function find($id);
+    public function find($id, $lockMode = NULL, $lockVersion = NULL);
     public function findAll(): array;
 
     /**

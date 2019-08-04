@@ -196,7 +196,7 @@ class TreeController extends BaseController
 
         $id = $request->get('id');
         $tree = $mapper->getDefaults();
-        $entity = $this->em()->getRepository($tree['class_path'])->find($id);
+        $entity = $this->em()->getRepository($tree['class_path'])->find($id, $lockMode = NULL, $lockVersion = NULL);
 
         if (!$entity) {
             throw $this->createNotFoundException('TREE: Unable to find  entity.');
@@ -274,7 +274,7 @@ class TreeController extends BaseController
         if ($request->isMethod('DELETE')) {
 
             $repository = $this->em()->getRepository($tree['class_path']);
-            $entity = $repository->find($id);
+            $entity = $repository->find($id, $lockMode = NULL, $lockVersion = NULL);
 
             try {
                 if($entity){
@@ -333,7 +333,7 @@ class TreeController extends BaseController
 
         $id = $request->get('id');
         $tree = $mapper->getDefaults();
-        $entity = $this->em()->getRepository($tree['class_path'])->find($id);
+        $entity = $this->em()->getRepository($tree['class_path'])->find($id, $lockMode = NULL, $lockVersion = NULL);
 
         if (!$entity) {
             throw $this->createNotFoundException('TREE: Unable to find  entity.');

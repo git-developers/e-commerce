@@ -30,7 +30,7 @@ class DocumentRepository extends BaseDocumentRepository implements RepositoryInt
      *
      * @return object
      */
-    public function find($id)
+    public function find($id, $lockMode = NULL, $lockVersion = NULL)
     {
         return $this
             ->getQueryBuilder()

@@ -238,7 +238,7 @@ class BoxOneToManyAssocController extends BaseController
 
         $box = $boxMapper->getDefaults();
 
-        $entity = $this->em()->getRepository($box['assoc_class_path'])->find($id);
+        $entity = $this->em()->getRepository($box['assoc_class_path'])->find($id, $lockMode = NULL, $lockVersion = NULL);
 
         if (!$entity) {
             throw $this->createNotFoundException('BoxOneToMany: Unable to find  entity.');

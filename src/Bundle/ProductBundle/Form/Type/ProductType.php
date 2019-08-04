@@ -30,7 +30,7 @@ class ProductType extends AbstractType
     }
 
     public function getCategory($id) {
-        return $this->em->getRepository(Category::class)->find($id);
+        return $this->em->getRepository(Category::class)->find($id, $lockMode = NULL, $lockVersion = NULL);
     }
 
     public function getCategoryId($options) {

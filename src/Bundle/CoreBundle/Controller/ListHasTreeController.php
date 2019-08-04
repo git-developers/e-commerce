@@ -208,7 +208,7 @@ class ListHasTreeController extends BaseController
         $box = $boxMapper->getDefaults();
         $boxRight = $rightMapper->getDefaults();
 
-        $entity = $this->em()->getRepository($box['assign_class_path'])->find($id);
+        $entity = $this->em()->getRepository($box['assign_class_path'])->find($id, $lockMode = NULL, $lockVersion = NULL);
 
         if (!$entity) {
             throw $this->createNotFoundException('LIST HAS TREE: Unable to find  entity.');
@@ -376,7 +376,7 @@ class ListHasTreeController extends BaseController
         $id = $request->get('id');
         $box = $boxMapper->getDefaults();
         $boxRight = $rightMapper->getDefaults();
-        $entity = $this->em()->getRepository($box['assign_class_path'])->find($id);
+        $entity = $this->em()->getRepository($box['assign_class_path'])->find($id, $lockMode = NULL, $lockVersion = NULL);
 
         if (!$entity) {
             throw $this->createNotFoundException('CRUD: Unable to find  entity.');

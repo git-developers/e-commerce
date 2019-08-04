@@ -10,7 +10,7 @@ use Component\Core\Repository\RepositoryInterface;
 interface CategoryRepositoryInterface extends RepositoryInterface
 {
 
-    public function find($id);
+    public function find($id, $lockMode = NULL, $lockVersion = NULL);
     public function findAll(): array;
     public function findAllParents(): array;
     public function findAllByParent($parent): array;

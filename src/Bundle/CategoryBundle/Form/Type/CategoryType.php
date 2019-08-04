@@ -25,7 +25,7 @@ class CategoryType extends AbstractType
     }
 
     public function getParentItem($id) {
-        return $this->em->getRepository(Category::class)->find($id);
+        return $this->em->getRepository(Category::class)->find($id, $lockMode = NULL, $lockVersion = NULL);
     }
 
     public function getParentId($options) {

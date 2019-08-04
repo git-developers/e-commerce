@@ -84,7 +84,7 @@ class InMemoryRepository implements RepositoryInterface
      *
      * @throws UnsupportedMethodException
      */
-    public function find($id)
+    public function find($id, $lockMode = NULL, $lockVersion = NULL)
     {
         return $this->findOneBy(['id' => $id]);
     }

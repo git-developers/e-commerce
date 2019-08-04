@@ -246,7 +246,7 @@ class ProfileRepository extends TianosEntityRepository implements ProfileReposit
 //    /**
 //     * {@inheritdoc}
 //     */
-//    public function find($id)
+//    public function find($id, $lockMode = NULL, $lockVersion = NULL)
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->select('o.id, o.code, o.name, o.createdAt')

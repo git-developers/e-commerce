@@ -294,7 +294,7 @@ class TreeToAssignController extends BaseController
 
         $id = $request->get('id');
         $boxLeft = $leftMapper->getDefaults();
-        $entity = $this->em()->getRepository($boxLeft['class_path'])->find($id);
+        $entity = $this->em()->getRepository($boxLeft['class_path'])->find($id, $lockMode = NULL, $lockVersion = NULL);
 
         if (!$entity) {
             throw $this->createNotFoundException('TREE: Unable to find  entity.');
@@ -376,7 +376,7 @@ class TreeToAssignController extends BaseController
         if ($request->isMethod('DELETE')) {
 
             $repository = $this->em()->getRepository($boxLeft['class_path']);
-            $entity = $repository->find($id);
+            $entity = $repository->find($id, $lockMode = NULL, $lockVersion = NULL);
 
             try {
                 if($entity){

@@ -13,7 +13,7 @@ class DUMMY_UPPERRepository extends TianosEntityRepository implements DUMMY_UPPE
     /**
      * {@inheritdoc}
      */
-    public function find($id)
+    public function find($id, $lockMode = NULL, $lockVersion = NULL)
     {
         $em = $this->getEntityManager();
         $dql = "
