@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Bundle\UserBundle\Renderer;
+namespace Bundle\CategoryBundle\Renderer;
 
-use Bundle\UserBundle\Form\Registry\FormTypeRegistryInterface;
+use Bundle\CategoryBundle\Form\Registry\FormTypeRegistryInterface;
 use Bundle\CoreBundle\Services\Button;
 use Component\Grid\Definition\Action;
 use Component\Grid\Definition\Field;
 use Component\Grid\Definition\Filter;
 use Component\Grid\FieldTypes\FieldTypeInterface;
-use Component\User\Renderer\UserRendererInterface;
+use Component\Category\Renderer\CategoryRendererInterface;
 use Component\Grid\View\GridViewInterface;
 use Component\Registry\ServiceRegistryInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Bundle\GridBundle\Services\Grid\Builder\DataTableMapper;
-use Bundle\UserBundle\Entity\User;
+use Bundle\CategoryBundle\Entity\User;
 
-final class TwigUserRenderer implements UserRendererInterface
+final class TwigCategoryRenderer implements CategoryRendererInterface
 {
     /**
      * @var \Twig_Environment
@@ -83,20 +83,10 @@ final class TwigUserRenderer implements UserRendererInterface
         $this->filterTemplates = $filterTemplates;
     }
 
-    //        JAFETH
-    public function profileAboutMe(string $aboutMe = null)
+    //JAFETH
+    public function tianosCategoryTree($length = null)
     {
-        return $this->twig->render($aboutMe ?: $this->defaultTemplate, ['template' => $aboutMe]);
-    }
-
-    public function appUserName(User $user, $start, $length = null)
-    {
-        $name = $user->getName();
-        $name = !is_null($name) ? substr($name, $start, $length) : '';
-
-        $lastName = $user->getLastName();
-        $lastName = !is_null($lastName) ? substr($lastName, $start, $length) : '';
-
-        return $name .' '. $lastName;
+		
+        return "ddddddddd";
     }
 }

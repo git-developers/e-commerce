@@ -5,21 +5,29 @@ declare(strict_types=1);
 namespace Bundle\CategoryBundle\Twig;
 
 use Bundle\CategoryBundle\Templating\Helper\CategoryHelper;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Twig_Environment;
 
 final class CategoryExtension extends \Twig_Extension
 {
+	/**
+	 * @var ContainerInterface
+	 */
+	private $container;
+	
     /**
      * @var CategoryHelper
      */
-    private $userHelper;
+    private $categoryHelper;
 
     /**
      * @param CategoryHelper $userHelper
      */
-    public function __construct(CategoryHelper $userHelper)
+//    public function __construct(CategoryHelper $categoryHelper, ContainerInterface $container)
+    public function __construct(CategoryHelper $categoryHelper)
     {
-        $this->categoryHelper = $userHelper;
+        $this->categoryHelper = $categoryHelper;
+//        $this->container = $container;
     }
 
     /**

@@ -353,11 +353,7 @@
                     <div class="menu-shadow">
                         <div id="menu-gadget">
                             <div id="menu-icon">Categorías</div>
-
-                            {% block category_tree %}
-
-                            {% endblock %}
-
+                            {{ tianos_category_tree() }}
                         </div>
 
                         <div id="top-links" class="nav">
@@ -457,7 +453,7 @@
                                 <h5>Información</h5>
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="xxx">
+                                        <a href="{{ path('pages_default_aboutus') }}">
                                             <i class="fa fa-angle-right"></i> Nosotros
                                         </a>
                                     </li>

@@ -5,3 +5,11 @@ pages_default_index:
         _controller: tianos.pages.controller.default:indexAction
         _tianos:
             template: PagesBundle:Default:index.html.twig
+
+pages_default_aboutus:
+    path: /about-us
+    methods: [GET]
+    defaults:
+        _controller: tianos.pages.controller.default:aboutUsAction
+        _tianos:
+            template: PagesBundle:Default:about_us.html.twig

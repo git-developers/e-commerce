@@ -1,0 +1,18 @@
+<ul class="menu">
+    {% for category in categoryTree %}
+        <li>
+            <a href="{{ path('frontend_category_detail', {slug: category.parent.slug}) }}">
+                {{ category.parent.name }}
+            </a>
+            <ul>
+                {% for children in category.children %}
+                    <li>
+                        <a href="{{ path('frontend_category_detail', {slug: children.parent.slug}) }}">
+                            {{ children.parent.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>

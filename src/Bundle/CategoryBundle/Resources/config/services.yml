@@ -44,3 +44,50 @@ services:
         arguments: ['@doctrine.orm.entity_manager']
         tags:
             - { name: form.type, alias: tianos.type.category }
+
+
+#    TWIG EXTENSION
+#    TWIG EXTENSION
+    tianos.registry.category_field:
+        class: Component\Registry\ServiceRegistry
+        arguments: [ Component\Category\FieldTypes\FieldTypeInterface, "grid field" ]
+
+    tianos.form_registry.category_filter:
+        class: Bundle\CategoryBundle\Form\Registry\FormTypeRegistry
+        public: false
+
+    tianos.expression_language:
+        class: Bundle\ResourceBundle\ExpressionLanguage\ExpressionLanguage
+        public: false
+
+    tianos.user_options_parser:
+        class: Bundle\ResourceBundle\User\Parser\OptionsParser
+        arguments: [ "@service_container", "@tianos.expression_language", "@property_accessor" ]
+        public: false
+
+    tianos.custom_category_renderer.twig.inner:
+        class: Bundle\CategoryBundle\Renderer\TwigCategoryRenderer
+        arguments: [ "@twig", "@tianos.registry.category_field", "@form.factory", "@tianos.form_registry.category_filter", SyliusOneToManyBundle::_grid.html.twig ]
+        public: false
+
+    tianos.custom_category_renderer.twig:
+        class: Bundle\ResourceBundle\Category\Renderer\TwigCategoryRenderer
+        arguments: [ "@tianos.custom_category_renderer.twig.inner", "@twig", "@tianos.user_options_parser" ]
+
+    tianos.templating.helper.category:
+        class: Bundle\CategoryBundle\Templating\Helper\CategoryHelper
+        arguments: [ "@tianos.custom_category_renderer.twig", "@service_container", "@twig" ]
+
+    twig.extension.category:
+        class: Bundle\CategoryBundle\Twig\CategoryExtension
+        arguments: ['@tianos.templating.helper.category']
+        public: false
+        tags:
+         - { name: twig.extension }
+
+
+
+
+
+
+
