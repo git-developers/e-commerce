@@ -17,3 +17,14 @@ frontend_category_index:
                 service: tianos.repository.category
                 method: findAll
                 arguments: [$categoryId]
+
+frontend_category_detail:
+    path: /detail/{slug}
+    methods: [GET]
+    defaults:
+        _controller: tianos.frontend.controller.category:detailAction
+        _tianos:
+            template: CategoryBundle:FrontendCategory:detail.html.twig
+            vars:
+                body_css: frontend-default
+

@@ -203,8 +203,8 @@ abstract class BaseController extends Controller
 		return $out;
 	}
 	
-	protected function rowImage($entity) //: array
-	{
+	protected function rowImage($entity) {
+  
 		if (!method_exists($entity,'setFiles')) {
 			return $entity;
 		}

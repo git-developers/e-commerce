@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Component\Resource\Metadata\Metadata;
 use Bundle\ResourceBundle\ResourceBundle;
 use Bundle\CoreBundle\Controller\BaseController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Webmozart\Assert\Assert;
 
 class FrontendController extends BaseController
 {
@@ -43,5 +43,31 @@ class FrontendController extends BaseController
             ]
         );
     }
+	
+	
+	/**
+	 * @param Request $request
+	 * @return Response
+	 */
+	public function detailAction(Request $request, $slug): Response
+	{
+		$options = $request->attributes->get('_tianos');
+		
+		$template = $options['template'] ?? null;
+		$vars = $options['vars'] ?? null;
+		Assert::notNull($template, 'Template is not configured.');
+		
+		
+		$category = $this->get('tianos.repository.category')->findBySlug($slug);
 
+//	    echo "POLLO:: <pre>";
+//	    print_r($products);
+//	    exit;
+		
+		
+		return $this->render($template, [
+			'category' => $category,
+			'vars' => $vars,
+		]);
+	}
 }

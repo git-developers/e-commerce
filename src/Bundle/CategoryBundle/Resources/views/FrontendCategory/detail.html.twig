@@ -1,0 +1,629 @@
+{% extends "ThemesBundle:Default:template.html.twig" %}
+
+{% block bodyclass %}{% spaceless %}
+    {{ vars.body_css }}
+{% endspaceless %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style type="text/css">
+
+    </style>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var myPhotoSwipe = $("#gallery a").photoSwipe({
+                enableMouseWheel: false,
+                enableKeyboard: false,
+                captionAndToolbarAutoHideDelay:0
+            });
+        });
+
+        jQuery(document).ready(function() {
+            $(".quickview-bestsellers").fancybox({
+                maxWidth	: 800,
+                maxHeight	: 600,
+                fitToView	: false,
+                width		: '70%',
+                height		: '70%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'elastic',
+                closeEffect	: 'elastic',
+
+            });
+        });
+
+        jQuery(document).ready(function() {
+            $(".quickview-latest").fancybox({
+                maxWidth	: 800,
+                maxHeight	: 600,
+                fitToView	: false,
+                width		: '70%',
+                height		: '70%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'elastic',
+                closeEffect	: 'elastic',
+
+            });
+        });
+
+        jQuery(document).ready(function() {
+
+            $(".quickview-special").fancybox({
+                maxWidth	: 800,
+                maxHeight	: 600,
+                fitToView	: false,
+                width		: '70%',
+                height		: '70%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'elastic',
+                closeEffect	: 'elastic',
+
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="{{ path('frontend_default_index') }}">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li class="last">
+                <a href="{{ path('frontend_category_detail', {slug: category.name}) }}">
+                    {{ category.name }}
+                </a>
+            </li>
+        </ul>
+
+        <div class="row">
+
+            <aside id="column-left" class="col-sm-3 ">
+
+                <div class="box bestsellers">
+
+                    <div class="box-heading">
+                        <h3>Bestsellers</h3>
+                    </div>
+
+                    <div class="box-content">
+                        <div class="product-layout" style="background-color: green">
+
+                            <div>
+                                <div class="product-thumb transition">
+
+				                    <span class="stickers">
+									    <span class="sale">Sale!</span>
+								    </span>
+
+                                    <div class="image">
+                                        <a href="product/product&amp;product_id=41">
+                                            <img alt="xx" title="xx" class="img-responsive lazy" data-src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Bridgestone1-270x270.png" src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Bridgestone1-270x270.png" style="opacity: 1;"></a>
+
+                                        <a class="quickview quickview-bestsellers" data-rel="details" href="#quickview_bestsellers_1">
+                                            Quick View				</a>
+                                        <div class="quick_info">
+                                            <div id="quickview_bestsellers_1">
+                                                <div>
+                                                    <div class="left col-sm-4">
+                                                        <div class="quickview_image image"><a href="product/product&amp;product_id=41"><img alt="xx" title="xx" class="img-responsive" src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Bridgestone1-270x270.png"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right col-sm-8">
+                                                        <h2>xx</h2>
+                                                        <div class="inf">
+                                                            <p class="quickview_manufacture manufacture manufacture">Brand: <a href="product/manufacturer/info&amp;manufacturer_id=8">Lorem ipsum</a></p>
+                                                            <p class="product_model model">Model: Product 14</p>
+
+                                                            <div class="price">
+                                                                <span class="price-new">$258.89</span><span class="price-old">$278.89</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clear"></div>
+                                                        <div class="cart-button">
+                                                            <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('41');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
+                                                            <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="compare.add('41');" data-original-title="Compare this Product"><i class="fa fa-signal"></i></button>
+                                                            <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('41');" data-original-title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
+                                                        </div>
+                                                        <div class="clear"></div>
+
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="quickview_description description"><iframe src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" frameborder="0" height="315" width="560"></iframe><p><b>Car owners</b> know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached <b>24/7</b> to give the customer a premium shopping experience.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="caption">
+                                        <div class="name"><a href="product/product&amp;product_id=41">xx</a></div>
+                                        <div class="rating">
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                        </div>
+                                        <div class="price">
+                                            <span class="price-new">$258.89</span> <span class="price-old">$278.89</span>
+                                        </div>
+
+                                        <div class="cart-button">
+                                            <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('41');" data-original-title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
+                                            <a class="btn btn-primary" href="product/product&amp;product_id=41"><span><i class="fa fa-chevron-right"></i>Details</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box latest">
+
+                    <div class="box-heading">
+                        <h3>Latest</h3>
+                    </div>
+
+                    <div class="box-content">
+                        <div class="product-layout">
+                            <div>
+                                <div class="product-thumb transition">
+
+                                <span class="stickers">
+                                    <span class="new_pr">New!</span>
+                                </span>
+
+                                <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_1">
+                                    Quick View
+                                </a>
+
+                                <div class="quick_info">
+                                    <div id="quickview_latest_1">
+                                        <div>
+                                            <div class="left col-sm-4">
+                                                <div class="quickview_image image">
+                                                    <a href="product/product&amp;product_id=49">
+                                                        <img
+                                                            alt="xx"
+                                                            title="xx"
+                                                            class="img-responsive"
+                                                            src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Adrenalin-Potenza1-270x270.png">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="right col-sm-8">
+                                                <h2>xx</h2>
+                                                <div class="inf">
+                                                    <p class="product_model model">Model: Product5</p>
+
+                                                    <div class="price">
+                                                        $258.89
+                                                    </div>
+                                                </div>
+                                                <div class="cart-button">
+                                                    <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('49');" data-original-title="Add to Wish List">
+                                                        <i class="fa fa-heart"></i>
+                                                    </button>
+                                                    <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="compare.add('49');" data-original-title="Compare this Product">
+                                                        <i class="fa fa-exchange"></i>
+                                                    </button>
+                                                    <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('49');" data-original-title="Add to Cart">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="rating">
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star active fa-stack-2x"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star active fa-stack-2x"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star active fa-stack-2x"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star active fa-stack-2x"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star active fa-stack-2x"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12">
+                                                <div class="quickview_description description">
+                                                    <iframe
+                                                        src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
+                                                        allowfullscreen=""
+                                                        frameborder="0"
+                                                        height="315"
+                                                        width="560">
+                                                    </iframe>
+                                                    <p>
+                                                        <b>Car owners</b> know the reaul engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached <b>24/7</b> to give the customer a premium shopping experience.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="image">
+                                    <a href="xxx">
+                                        <img
+                                            src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Adrenalin-Potenza1-270x270.png"
+                                            alt="xx"
+                                            title="xx"
+                                            class="img-responsive">
+                                    </a>
+                                </div>
+
+                                <div class="caption">
+                                    <div class="name">
+                                        <a href="product/product&amp;product_id=49">
+                                            xx
+                                        </a>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="fa fa-stack">
+                                            <i class="fa fa-star active fa-stack-2x"></i>
+                                        </span>
+                                        <span class="fa fa-stack">
+                                            <i class="fa fa-star active fa-stack-2x"></i>
+                                        </span>
+                                        <span class="fa fa-stack">
+                                            <i class="fa fa-star active fa-stack-2x"></i>
+                                        </span>
+                                        <span class="fa fa-stack">
+                                            <i class="fa fa-star active fa-stack-2x"></i>
+                                        </span>
+                                        <span class="fa fa-stack">
+                                            <i class="fa fa-star active fa-stack-2x"></i>
+                                        </span>
+                                    </div>
+                                    <div class="price">
+                                        $258.89
+                                    </div>
+                                </div>
+
+                                <div class="cart-button">
+                                    <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('49');" data-original-title="Add to Cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>
+                                    <a class="btn btn-primary" href="product/product&amp;product_id=49">
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>Details
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box specials">
+
+                    <div class="box-heading">
+                        <h3>Specials</h3>
+                    </div>
+
+                    <div class="box-content">
+                        <div class="product-layout">
+                            <div>
+                                <div class="product-thumb transition">
+
+                                    <span class="stickers">
+                                        <span class="sale">Sale!</span>
+                                        <span class="new_pr">New!</span>
+                                    </span>
+
+                                    <a class="quickview quickview-special" data-rel="details" href="#quickview_specials_1">
+                                        Quick View
+                                    </a>
+
+                                    <div class="quick_info">
+                                        <div id="quickview_specials_1">
+                                            <div>
+                                                <div class="left col-sm-4">
+                                                    <div class="quickview_image image">
+                                                        <a href="product/product&amp;product_id=47">
+                                                            <img
+                                                                alt="Lorem ipsum dolor sit ame"
+                                                                title="Lorem ipsum dolor sit ame"
+                                                                class="img-responsive"
+                                                                src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/LEXANI-Custom1-270x270.png">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="right col-sm-8">
+                                                    <h2>Lorem ipsum dolor sit ame</h2>
+                                                    <div class="inf">
+                                                        <p class="quickview_manufacture manufacture manufacture">
+                                                            Brand: <a href="product/manufacturer/info&amp;manufacturer_id=7">libero convallis</a>
+                                                        </p>
+                                                        <p class="product_model model">
+                                                            Model: Product 21
+                                                        </p>
+
+                                                        <div class="price">
+                                                            <span class="price-new">$56.89</span>
+                                                            <span class="price-old">$68.96</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cart-button">
+                                                        <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('47');" data-original-title="Add to Wish List">
+                                                            <i class="fa fa-heart"></i>
+                                                        </button>
+                                                        <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="compare.add('47');" data-original-title="Compare this Product">
+                                                            <i class="fa fa-exchange"></i>
+                                                        </button>
+                                                        <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('47');" data-original-title="Add to Cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                    <div class="rating">
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x active"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x"></i>
+                                                        </span>
+                                                        <span class="fa fa-stack">
+                                                            <i class="fa fa-star fa-stack-2x"></i>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="quickview_description description">
+                                                        <iframe
+                                                            src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
+                                                            allowfullscreen=""
+                                                            frameborder="0"
+                                                            height="315"
+                                                            width="560">
+                                                        </iframe>
+                                                        <p>
+                                                            <b>Car owners</b> know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached <b>24/7</b> to give the customer a premium shopping experience.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a href="product/product&amp;product_id=47">
+                                            <img
+                                                src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/LEXANI-Custom1-270x270.png"
+                                                alt="Lorem ipsum dolor sit ame"
+                                                title="Lorem ipsum dolor sit ame"
+                                                class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="caption">
+                                        <div class="name">
+                                            <a href="product/product&amp;product_id=47">
+                                                Lorem ipsum dolor sit ame
+                                            </a>
+                                        </div>
+                                        <div class="rating">
+										    <span class="fa fa-stack">
+                                                <i class="fa fa-star active fa-stack-2x"></i>
+                                            </span>
+                                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star active fa-stack-2x"></i>
+                                            </span>
+                                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star active fa-stack-2x"></i>
+                                            </span>
+                                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star fa-stack-2x"></i>
+                                            </span>
+                                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star fa-stack-2x"></i>
+                                            </span>
+                                        </div>
+
+                                        <div class="price">
+                                            <span class="price-new">
+                                                $56.89
+                                            </span>
+                                            <span class="price-old">
+                                                $68.96
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="cart-button">
+                                        <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('47');" data-original-title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
+                                        <a class="btn btn-primary" href="product/product&amp;product_id=47"><span><i class="fa fa-chevron-right"></i>Details</span></a>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div id="content" class="col-sm-9">
+                <h2>
+                    {{ category.name }}
+                </h2>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="image">
+                            <img
+                                src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Nokian-C1-345x345.png"
+                                alt="Elit sed do eiusmod"
+                                title="Elit sed do eiusmod"
+                                class="img-thumbnail">
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <p>
+                            <b>Car owners</b> know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all this can make you lag behind competitors unless you equip your beast with the right wheels and tyres. It frequently happens that you can’t find the necessary part or accessory in the local auto parts store. This is when online shops come in handy. You no longer need to wander around the town in search of the necessary car parts since all this can be found on our website. Join the club and bring wheels &amp; tyres shopping to the whole new level. </p><p><b>We keep track</b> of the latest web design trends and try hard to keep our estore up-to-date and modern. It is designed in such a way that nothing will distract you from the items worth your attention. All auto part can be accessed by clicking the banner on the home page, picking the right category in the top menu or simply typing the name of the items you need in the integrated search bar. Do you need assistance to come up with the product that will perfectly fit your particular vehicle? Our experienced team of sales and customer service reps can be reached <b>24/7</b> to give the customer a premium shopping experience.
+                        </p>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="product-filter clearfix">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label" for="input-sort">Sort By:</label>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="input-sort" class="form-control col-sm-3" onchange="location = this.value;">
+                                <option value="product/category&amp;path=57&amp;sort=p.sort_order&amp;order=ASC" selected="selected">Default</option>
+                                <option value="product/category&amp;path=57&amp;sort=pd.name&amp;order=ASC">Name (A - Z)</option>
+                                <option value="product/category&amp;path=57&amp;sort=pd.name&amp;order=DESC">Name (Z - A)</option>
+                                <option value="product/category&amp;path=57&amp;sort=p.price&amp;order=ASC">Price (Low &gt; High)</option>
+                                <option value="product/category&amp;path=57&amp;sort=p.price&amp;order=DESC">Price (High &gt; Low)</option>
+                                <option value="product/category&amp;path=57&amp;sort=rating&amp;order=DESC">Rating (Highest)</option>
+                                <option value="product/category&amp;path=57&amp;sort=rating&amp;order=ASC">Rating (Lowest)</option>
+                                <option value="product/category&amp;path=57&amp;sort=p.model&amp;order=ASC">Model (A - Z)</option>
+                                <option value="product/category&amp;path=57&amp;sort=p.model&amp;order=DESC">Model (Z - A)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="control-label" for="input-limit">Show:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <select id="input-limit" class="form-control" onchange="location = this.value;">
+                                <option value="product/category&amp;path=57&amp;limit=6" selected="selected">6</option>
+                                <option value="product/category&amp;path=57&amp;limit=25">25</option>
+                                <option value="product/category&amp;path=57&amp;limit=50">50</option>
+                                <option value="product/category&amp;path=57&amp;limit=75">75</option>
+                                <option value="product/category&amp;path=57&amp;limit=100">100</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <div class="button-view">
+                                <button type="button" id="list-view" class="btn btn-default active" data-toggle="tooltip" title="" data-original-title="List">
+                                    <i class="fa fa-th-list"></i>
+                                </button>
+                                <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Grid">
+                                    <i class="fa fa-th"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-cat clearfix">
+                    <div class="pull-left"></div>
+                    <div class="pull-left nam-page">Showing 1 to 3 of 3 (1 Pages)</div>
+                    <div class="pull-right">
+                        <a href="product/compare" id="compare-total">
+                            Product Compare (0)	<i class="fa fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    {% for i in 0..5 %}
+                        <div class="product-layout product-list col-xs-12">
+                            <div class="product-thumb">
+                                <div class="image">
+                                    <a href="product/product&amp;path=57&amp;product_id=28">
+                                        <img
+                                            src="https://livedemo00.template-help.com/opencart_53498/image/cache/catalog/Fondmetal1-270x270.png"
+                                            alt="xx"
+                                            title="xx"
+                                            class="img-responsive"></a>
+
+                                    <span class="stickers"></span>
+                                </div>
+
+                                <div>
+                                    <div class="caption">
+                                        <div class="name name-product">
+                                            <a href="product/product&amp;path=57&amp;product_id=28">
+                                                xx
+                                            </a>
+                                        </div>
+                                        <div class="description1">
+                                            Car owners know the real value of choosing quality wheels and tyres. Even if you have the most powerful engine, the next generation power transmission system and premium super-trick suspension, all th..</div>
+                                        <div class="description">
+                                            Car owners know the real value of choosing quality wheels and tyres...</div>
+                                        <div class="rating">
+                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star active fa-stack-2x"></i>
+                                            </span>
+                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star active fa-stack-2x"></i>
+                                            </span>
+                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star active fa-stack-2x"></i>
+                                            </span>
+                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star fa-stack-2x"></i>
+                                            </span>
+                                            <span class="fa fa-stack">
+                                                <i class="fa fa-star fa-stack-2x"></i>
+                                            </span>
+                                        </div>
+                                        <div class="price price-product">
+                                            $258.89
+                                        </div>
+                                    </div>
+                                    <div class="cart-button">
+                                        <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('28');" data-original-title="Add to Wish List">
+                                            <i class="fa fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-icon" type="button" data-toggle="tooltip" title="" onclick="compare.add('28');" data-original-title="Compare this Product">
+                                            <i class="fa fa-exchange"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-add" type="button" data-toggle="tooltip" title="" onclick="cart.add('28');" data-original-title="Add to Cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="clearfix hidden-xs"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 text-left"></div>
+                    <div class="col-sm-6 text-right">Mostrando 1 to 3 of 3 (1 Pages)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

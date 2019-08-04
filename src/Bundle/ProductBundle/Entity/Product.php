@@ -91,6 +91,10 @@ class Product
 
     /**
      * @var string
+     *
+     * @JMSS\Groups({
+     *     "frontend",
+     * })
      */
     private $slug;
 
@@ -98,7 +102,6 @@ class Product
      * @var string
      *
      * @JMSS\Groups({
-     *     "crud",
      *     "frontend",
      * })
      */
@@ -533,7 +536,7 @@ class Product
 	/**
 	 * @return array
 	 */
-	public function getFiles(): array
+	public function getFiles()//: array
 	{
 		return $this->files;
 	}

@@ -1,0 +1,20 @@
+frontend_product_detail:
+    path: /detail/{slug}
+    methods: [GET]
+    defaults:
+        _controller: tianos.frontend.controller.product:detailAction
+        _tianos:
+            template: FrontendBundle:Product:detail.html.twig
+            vars:
+                body_css: frontend-default
+
+frontend_product_category:
+    path: /category/{slug}
+    methods: [GET]
+    defaults:
+        _controller: tianos.frontend.controller.category:detailAction
+        _tianos:
+            template: FrontendBundle:Product:detail.html.twig
+            vars:
+                body_css: frontend-default
+

@@ -55,15 +55,15 @@
 
         window.onload = function() {
 
-            var mapelement=document.getElementById('map');
+            var mapelement = document.getElementById('map');
 
-            if(mapelement){
+            if (mapelement) {
 
                 function initialize() {
 
                     var locations = [
-                        ['Tyres', 42.332, -83.046, 2],
-                        ['Tyres', 42.649224, -73.796384, 1]
+                        ['Solutecip', -12.1192666,-77.0290238, 2],
+                        ['Solutecip', -12.1192666,-77.0290238, 1]
                     ];
                     var styles = [
                         {
@@ -189,9 +189,9 @@
                     var marker, i;
 
                     var mapOptions = {
-                        zoom: 10,
+                        zoom: 15,
                         scrollwheel: false,
-                        center: new google.maps.LatLng(42.649224, -73.796384),
+                        center: new google.maps.LatLng(-12.1192666,-77.0290238),
                         mapTypeControl: false,
                         panControl: true,
                         scaleControl: false,
@@ -209,7 +209,7 @@
                     map = new google.maps.Map(document.getElementById('map'),mapOptions);
                     map.mapTypes.set('map_style', styledMap);
                     map.setMapTypeId('map_style');
-                    var markerImage = "{{ asset('bundles/themes/default/image/catalog/gmap_marker.png') }}";
+                    var markerImage = "{{ asset('bundles/themes/default/image/gmap_marker.png') }}";
 
                     infowindow = new google.maps.InfoWindow(),
                         markers = [];
@@ -222,7 +222,8 @@
                             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                             animation: null
                         });
-                        var contentString = 'Company Inc., 8901 Marmora Road, Glasgow, D04 89GR';
+                        // var contentString = 'Company Inc., 8901 Marmora Road, Glasgow, D04 89GR';
+                        var contentString = 'Lima';
                         var infowindow = new google.maps.InfoWindow({
                             content: contentString
                         });
@@ -233,7 +234,7 @@
                 }
 
                 initialize();
-            } };
+            }};
 
 
         $(document).ready(function() {
@@ -262,1007 +263,485 @@
 
 {% endblock %}
 
+{% block category_tree %}
+
+    <ul class="menu">
+        {% for category in categoryTree %}
+            <li>
+                <a href="{{ path('frontend_category_detail', {slug: category.parent.slug}) }}">
+                    {{ category.parent.name }}
+                </a>
+                <ul>
+                    {% for children in category.children %}
+                        <li>
+                            <a href="{{ path('frontend_category_detail', {slug: children.parent.slug}) }}">
+                                {{ children.parent.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
 {% block content %}
 
-    {#SWIPE MENU#}
-    <div class="swipe">
-        <div class="swipe-menu">
+    <div class="header_modules">
 
-            <ul>
-                <li>
-                    <a href="xxx" title="My Account">
-                        <i class="fa fa-user"></i>
-                        <span>My Account</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        <i class="fa fa-user"></i> Crear una cuenta
-                    </a>
-                </li>
-                <li>
-                    <a href="xxxx">
-                        <i class="fa fa-lock"></i>Login
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx" id="wishlist-total2" title="Wish">
-                        <i class="fa fa-heart"></i>
-                        <span>Wish List</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx" title="Shopping Cart">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>Shopping Cart</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx" title="Checkout">
-                        <i class="fa fa-share"></i>
-                        <span>Checkout</span>
-                    </a>
-                </li>
-            </ul>
+        <div class="fluid_container" >
+            <div class="camera_container">
+                <div id="camera_wrap_0">
+                    <div
+                        title="slide-1"
+                        data-thumb="{{ asset('bundles/themes/default/image/slide/slide-1-2050x740.jpg') }}"
+                        data-src="{{ asset('bundles/themes/default/image/slide/slide-1-2050x740.jpg') }}">
+                        <div class="camera_caption fadeIn">
+                            <div>
+                                <h1>Find wheels & tyres</h1>
+                                <h2>For all vehicle types</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        title="slide-2"
+                        data-thumb="{{ asset('bundles/themes/default/image/slide/slide-2-2050x740.jpg') }}"
+                        data-src="{{ asset('bundles/themes/default/image/slide/slide-2-2050x740.jpg') }}">
+                        <div class="camera_caption fadeIn">
+                            <div>
+                                <h1>Your wheels are in</h1>
+                                <h2>Good hands!</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        title="slide-3"
+                        data-thumb="{{ asset('bundles/themes/default/image/slide/slide-3-2050x740.jpg') }}"
+                        data-src="{{ asset('bundles/themes/default/image/slide/slide-3-2050x740.jpg') }}">
+                        <div class="camera_caption fadeIn">
+                            <div>
+                                <h1>Custom Wheels & Rims</h1>
+                                <h2>It's all about style and performance</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <ul class="foot">
-                <li>
-                    <a href="xxx">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Delivery
-                    </a>
-                </li>
-                <li>
-                    <a href="xxxx">
-                        Privacy Policy
-                    </a>
-                </li>
-                <li>
-                    <a href="xxxx">
-                        Terms &amp; Conditions
-                    </a>
-                </li>
-            </ul>
+        <div id="banner0" class="banners">
+            <div class="col-sm-4">
+                <div class="banner-box">
+                    <a class="clearfix" href="xxx">
+                        <img
+                            src="{{ asset('bundles/themes/default/image/catalog/banner-1-663x370.png') }}"
+                            alt="banner-1"
+                            class="img-responsive" />
 
-            <ul class="foot foot-1">
-                <li>
-                    <a href="xxx">
-                        Contact Us
+                        <div class="s-desc">
+                            <h1>Winter</h1>
+                            <h2>Tires</h2>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <span class="banner_button">
+                            <span>See all winter tyres</span>
+                                <i class="fa fa-chevron-right "></i>
+                            </span>
+                        </div>
                     </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Returns
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Site Map
-                    </a>
-                </li>
-            </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="banner-box">
+                    <a class="clearfix" href="xxxx">
+                        <img
+                            src="{{ asset('bundles/themes/default/image/catalog/banner-2-663x370.png') }}"
+                            alt="banner-2"
+                            class="img-responsive" />
 
-            <ul class="foot foot-2">
-                <li>
-                    <a href="xxx">
-                        Brands
+                        <div class="s-desc">
+                            <h1>Summer</h1>
+                            <h2>Tires</h2>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <span class="banner_button">
+                            <span>See all winter tyres</span>
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </div>
                     </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Gift Vouchers
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="banner-box">
+                    <a class="clearfix" href="xxx">
+                        <img
+                            src="{{ asset('bundles/themes/default/image/catalog/banner-3-663x370.png') }}"
+                            alt="banner-3"
+                            class="img-responsive" />
+
+                        <div class="s-desc">
+                            <h1>Custom</h1>
+                            <h2>Wheels</h2>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <span class="banner_button">
+                            <span>See all winter tyres</span>
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </div>
                     </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Affiliates
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Specials
-                    </a>
-                </li>
-            </ul>
-            <ul class="foot foot-3">
-                <li>
-                    <a href="xxx">
-                        Order History
-                    </a>
-                </li>
-                <li>
-                    <a href="xxx">
-                        Newsletter
-                    </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
-    {#SWIPE MENU#}
 
-
-    {#PAGE#}
-    <div id="page">
-
-        <div class="shadow"></div>
-        <div class="toprow-1">
-            <a class="swipe-control" href="#">
-                <i class="fa fa-align-justify"></i>
-            </a>
-        </div>
-
-        <nav id="top" class="clearfix">
-            <div class="container">
-                <div class="top-panel"></div>
-                <div class="top-button">
-                    <div class="box-currency">
-
-                        <form
-                            action="xxx"
-                            method="post"
-                            enctype="multipart/form-data" id="currency">
-
-                            <div class="btn-group">
-                                <span class="dropdown-toggle" data-toggle="dropdown">
-                                    $ <span class="hidden-xs hidden-sm hidden-md hidden">Currency</span>
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                                <ul class="dropdown-menu  pull-right">
-                                    <li>
-                                        <button class="currency-select" type="button" name="EUR">
-                                            € Euro
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="currency-select" type="button" name="GBP">
-                                            £ Pound Sterling
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="currency-select" type="button" name="USD">
-                                            $ US Dollar
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <input type="hidden" name="code" value="" />
-                            <input type="hidden" name="redirect" value="xxx" />
-                        </form>
-
-                    </div>
-
-                    <div class="pull-right box-language">
-
-                        <form action="xxx" method="post" enctype="multipart/form-data" id="language">
-                            <div class="btn-group pull-right">
-                            <span class="dropdown-toggle" data-toggle="dropdown">
-                                <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/gb.png') }}" alt="English" title="English">
-                                en
-                                <span class="hidden-xs hidden-sm hidden-md hidden">Language</span>
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="en">
-                                            <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/gb.png') }}" alt="English" title="English" /> English
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="de">
-                                            <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/de.png') }}" alt="Deutsch" title="Deutsch" /> Deutsch
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="ru">
-                                            <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/ru.png') }}" alt="Русский" title="Русский" /> Русский
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <input type="hidden" name="code" value="" />
-                            <input type="hidden" name="redirect" value="xxx" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <header>
-            <div class="container">
-                <div id="logo">
-                    <a href="xxx">
-                        <img
-                            src="{{ asset('bundles/themes/default/image/logo.png') }}"
-                            title="Tyres"
-                            alt="Tyres"
-                            class="img-responsive" />
-                    </a>
-                </div>
-                <div class="box-right">
-                    <div class="box-cart">
-                        <div id="cart">
-
-                            <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="dropdown-toggle">
-                                <i class="fa fa-shopping-cart"></i>
-                                <strong>Cart: </strong>
-                                <span id="cart-total"> 0 item(s) </span>
-                                <span id="cart-total2">0</span>
-                            </button>
-
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <p class="text-center">Your shopping cart is empty!</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="log-button">
-                        <a href="xxx">
-                            <i class="fa fa-unlock-alt"></i>
-                            <span>Login</span>
-                        </a>
-                        <a href="xxx" title="Create an account">
-                            <i class="fa fa-user"></i>
-                            <span>Crea una cuenta</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="nav__primary">
-            <div class="container">
-                <div class="menu-shadow">
-                    <div id="menu-gadget">
-                        <div id="menu-icon">Categorías</div>
-                        <ul class="menu">
-                            <li>
-                                <a href="xxx">Wheel covers</a>
-                                <ul>
-                                    <li>
-                                        <a href="xxx">
-                                            Elit sed do eiusmod
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="xxx">
-                                            Lorem ipsum
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="xxx">
-                                    Wheel locks
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="xxx">Eusmod teampor</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="xxx">Wheel spacers</a>
-                                <ul>
-                                    <li>
-                                        <a href="xxx">Incididunt</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="xxx">Summer tyres</a>
-                                <ul>
-                                    <li>
-                                        <a href="xxx">Conse ctetur </a>
-                                    </li>
-                                    <li>
-                                        <a href="xxxx">Incididunt ut labore </a>
-                                    </li>
-                                    <li>
-                                        <a href="xxx">Dolor sit amet</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="xxx">Winter tyres</a>
-                                <ul>
-                                    <li>
-                                        <a href="xxxx">Incididunt</a>
-                                    </li>
-                                    <li>
-                                        <a href="xxx">Lorem ipsum </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="xxx">Sport tyres</a>
-                                <ul>
-                                    <li>
-                                        <a href="xxx">Eusmod teampor</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="top-links" class="nav">
-                        <ul class="list-inline">
-                            <li class="first">
-                                <a href="xxx" title="Home">
-                                    <i class="fa fa-home"></i>
-                                    <span>Inicio</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="xxx" id="wishlist-total" title="Wish List">
-                                    <i class="fa fa-heart"></i>
-                                    <span>Wish List <span>0</span></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="xx" title="My Account">
-                                    <i class="fa fa-user"></i>
-                                    <span>Mi Cuenta</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="xxx" title="Shopping Cart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Carrito de compras</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="xxx" title="Checkout">
-                                    <i class="fa fa-share"></i>
-                                    <span>Checkout</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="search">
-                        <input type="text" name="search" value="" placeholder="" />
-                        <i class="fa fa-search"></i>
-                        <button type="button" class="button-search">
-                            <i class="fa fa-angle-double-right"></i>
-                        </button>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="clear"></div>
-
-                </div>
-            </div>
-        </div>
-
-        <p id="back-top">
-            <a href="#top">
-                <i class="fa fa-angle-up"></i>
-            </a>
-        </p>
-
-        <div class="header_modules">
-
-            <div class="fluid_container" >
-                <div class="camera_container">
-                    <div id="camera_wrap_0">
-                        <div
-                            title="slide-1"
-                            data-thumb="{{ asset('bundles/themes/default/image/catalog/slide-1-2050x740.jpg') }}"
-                            data-src="{{ asset('bundles/themes/default/image/catalog/slide-1-2050x740.jpg') }}">
-                            <div class="camera_caption fadeIn">
-                                <div>
-                                    <h1>Find wheels & tyres</h1>
-                                    <h2>For all vehicle types</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            title="slide-2"
-                            data-thumb="{{ asset('bundles/themes/default/image/catalog/slide-2-2050x740.jpg') }}"
-                            data-src="{{ asset('bundles/themes/default/image/catalog/slide-2-2050x740.jpg') }}">
-                            <div class="camera_caption fadeIn">
-                                <div>
-                                    <h1>Your wheels are in</h1>
-                                    <h2>Good hands!</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            title="slide-3"
-                            data-thumb="{{ asset('bundles/themes/default/image/catalog/slide-3-2050x740.jpg') }}"
-                            data-src="{{ asset('bundles/themes/default/image/catalog/slide-3-2050x740.jpg') }}">
-                            <div class="camera_caption fadeIn">
-                                <div>
-                                    <h1>Custom Wheels & Rims</h1>
-                                    <h2>It's all about style and performance</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="banner0" class="banners">
-                <div class="col-sm-4">
-                    <div class="banner-box">
-                        <a class="clearfix" href="xxx">
-                            <img
-                                src="{{ asset('bundles/themes/default/image/catalog/banner-1-663x370.png') }}"
-                                alt="banner-1"
-                                class="img-responsive" />
-                            <div class="s-desc">
-                                <h1>Winter</h1>
-                                <h2>Tires</h2>
-                                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                <span class="banner_button">
-                                <span>See all winter tyres</span>
-                                    <i class="fa fa-chevron-right "></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="banner-box">
-                        <a class="clearfix" href="xxxx">
-                            <img
-                                src="{{ asset('bundles/themes/default/image/catalog/banner-2-663x370.png') }}"
-                                alt="banner-2"
-                                class="img-responsive" />
-                            <div class="s-desc">
-                                <h1>Summer</h1>
-                                <h2>Tires</h2>
-                                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                <span class="banner_button">
-                                <span>See all winter tyres</span>
-                                    <i class="fa fa-chevron-right "></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="banner-box">
-                        <a class="clearfix" href="xxx">
-                            <img
-                                src="{{ asset('bundles/themes/default/image/catalog/banner-3-663x370.png') }}"
-                                alt="banner-3"
-                                class="img-responsive" />
-                            <div class="s-desc">
-                                <h1>Custom</h1>
-                                <h2>Wheels</h2>
-                                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                <span class="banner_button">
-                                <span>See all winter tyres</span>
-                                    <i class="fa fa-chevron-right "></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="container">
-            <div class="container">
-                <div class="row">
-                    <div id="content" class="col-sm-12">
-                        <div class="box_html brand">
-                            <div class="box brand">
-                                <div class="box-content">
-                                    <ul class="owl-carousel owl-theme" id="owl-example2">
-                                        <li>
-                                            <a href="xxx">
-                                                <img
-                                                    alt="image-brand-1"
-                                                    src="{{ asset('bundles/themes/default/image/catalog/brand-1.png') }}">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="xxx">
-                                                <img
-                                                    alt="image-brand-2"
-                                                    src="{{ asset('bundles/themes/default/image/catalog/brand-2.png') }}">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="xxx">
-                                                <img
-                                                    alt="image-brand-3"
-                                                    src="{{ asset('bundles/themes/default/image/catalog/brand-3.png') }}">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="xxx">
-                                                <img
-                                                    alt="image-brand-4"
-                                                    src="{{ asset('bundles/themes/default/image/catalog/brand-4.png') }}">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="xxx">
-                                                <img
-                                                    alt="image-brand-5"
-                                                    src="{{ asset('bundles/themes/default/image/catalog/brand-5.png') }}">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="xxx">
-                                                <img
-                                                    alt="image-brand-6"
-                                                    src="{{ asset('bundles/themes/default/image/catalog/brand-6.png') }}">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {#FEATURED PRODUCTS#}
-                        <div class="box featured">
-
-                            <div class="box-heading">
-                                <h3>
-                                    Productos Destacados
-                                </h3>
-                            </div>
-
+    <div id="container">
+        <div class="container">
+            <div class="row">
+                <div id="content" class="col-sm-12">
+                    <div class="box_html brand">
+                        <div class="box brand">
                             <div class="box-content">
-                                <div class="product-layout">
 
-                                    {% for product in products %}
+                                <ul class="owl-carousel owl-theme" id="owl-example2">
+                                    <li>
+                                        <a href="xxx">
+                                            <img
+                                                alt="image-brand-1"
+                                                src="{{ asset('bundles/themes/default/image/catalog/brand-1.png') }}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <img
+                                                alt="image-brand-2"
+                                                src="{{ asset('bundles/themes/default/image/catalog/brand-2.png') }}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <img
+                                                alt="image-brand-3"
+                                                src="{{ asset('bundles/themes/default/image/catalog/brand-3.png') }}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <img
+                                                alt="image-brand-4"
+                                                src="{{ asset('bundles/themes/default/image/catalog/brand-4.png') }}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <img
+                                                alt="image-brand-5"
+                                                src="{{ asset('bundles/themes/default/image/catalog/brand-5.png') }}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <img
+                                                alt="image-brand-6"
+                                                src="{{ asset('bundles/themes/default/image/catalog/brand-6.png') }}">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 
-                                            <div class="product-thumb transition">
+                    {#FEATURED PRODUCTS#}
+                    <div class="box featured">
 
-                                                <span class="stickers">
-                                                    <span class="sale">Sale!</span>
-                                                </span>
+                        <div class="box-heading">
+                            <h3>
+                                Productos Destacados
+                            </h3>
+                        </div>
 
-                                                <a class="quickview" data-rel="details" href="#quickview_{{ loop.index }}">
-                                                    Vista r&aacute;pida
-                                                </a>
+                        <div class="box-content">
+                            <div class="product-layout">
 
-                                                <div class="quick_info">
-                                                    <div id="quickview_{{ loop.index }}">
-                                                        <div>
-                                                            <div class="left col-sm-4">
-                                                                <div class="quickview_image image">
-                                                                    <a href="xxx">
-                                                                        {% if product.files|first is empty %}
-                                                                            <img
-                                                                                alt="Lorem ipsum"
-                                                                                title="Lorem ipsum"
-                                                                                class="img-responsive"
-                                                                                src="{{ asset('bundles/themes/default/image/catalog/default-270x270.png') }}" />
-                                                                        {% else %}
-                                                                            <img
-                                                                                alt="Lorem ipsum"
-                                                                                title="Lorem ipsum"
-                                                                                class="img-responsive"
-                                                                                src="{{ asset(product.files|first) }}" />
-                                                                        {% endif %}
-                                                                    </a>
+                                {% for product in products %}
+
+                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+
+                                        <div class="product-thumb transition">
+
+                                            <span class="stickers">
+                                                <span class="sale">Sale!</span>
+                                            </span>
+
+                                            <a class="quickview" data-rel="details" href="#quickview_{{ loop.index }}">
+                                                Vista r&aacute;pida
+                                            </a>
+
+                                            <div class="quick_info">
+                                                <div id="quickview_{{ loop.index }}">
+                                                    <div>
+                                                        <div class="left col-sm-4">
+                                                            <div class="quickview_image image">
+                                                                <a href="{{ path('frontend_product_detail', {slug: product.slug}) }}">
+                                                                    {% if product.files|first is empty %}
+                                                                        <img
+                                                                            alt="{{ product.name }}"
+                                                                            title="{{ product.name }}"
+                                                                            class="img-responsive"
+                                                                            src="{{ asset('bundles/themes/default/image/catalog/default-270x270.png') }}" />
+                                                                    {% else %}
+                                                                        <img
+                                                                            alt="{{ product.name }}"
+                                                                            title="{{ product.name }}"
+                                                                            class="img-responsive"
+                                                                            src="{{ asset(product.files|first) }}" />
+                                                                    {% endif %}
+                                                                </a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="right col-sm-8">
+
+                                                            <h2>
+                                                                {{ product.description_short }}
+                                                            </h2>
+
+                                                            <div class="inf">
+                                                                <p class="quickview_manufacture manufacture manufacture">
+                                                                    Marca: <a href="xxx">{{ product.brand.name }}</a>
+                                                                </p>
+                                                                <p class="product_model model">
+                                                                    Modelo: {{ product.model }}
+                                                                </p>
+                                                                <div class="price">
+                                                                    <span class="price-new">
+                                                                        S/ {{ product.price }}
+                                                                    </span>
+                                                                    <span class="price-old">
+                                                                        S/ {{ product.price + 36.78 }}
+                                                                    </span>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="right col-sm-8">
+                                                            <div class="cart-button">
+                                                                <button
+                                                                    class="btn btn-icon"
+                                                                    type="button"
+                                                                    data-toggle="tooltip"
+                                                                    title="Agregar al Wish List"
+                                                                    onclick="wishlist.add('41');">
+                                                                    <i class="fa fa-heart"></i>
+                                                                </button>
+                                                                <button
+                                                                    class="btn btn-icon"
+                                                                    type="button"
+                                                                    data-toggle="tooltip"
+                                                                    title="Comparar este Producto"
+                                                                    onclick="compare.add('41');">
+                                                                    <i class="fa fa-exchange"></i>
+                                                                </button>
+                                                                <button
+                                                                    class="btn btn-icon btn-add"
+                                                                    type="button"
+                                                                    data-toggle="tooltip"
+                                                                    title="Agregar a carrito"
+                                                                    onclick="cart.add('41');">
+                                                                    <i class="fa fa-shopping-cart"></i>
+                                                                </button>
+                                                            </div>
 
-                                                                <h2>{{ product.description_short }}</h2>
+                                                            <div class="clear"></div>
 
-                                                                <div class="inf">
-                                                                    <p class="quickview_manufacture manufacture manufacture">
-                                                                        Marca: <a href="xxx">{{ product.brand.name }}</a>
-                                                                    </p>
-                                                                    <p class="product_model model">Modelo: {{ product.model }}</p>
-                                                                    <div class="price">
-                                                                        <span class="price-new">
-                                                                            S/ {{ product.price }}
-                                                                        </span>
-                                                                        <span class="price-old">
-                                                                            S/ {{ product.price + 36.78 }}
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cart-button">
-                                                                    <button
-                                                                        class="btn btn-icon"
-                                                                        type="button"
-                                                                        data-toggle="tooltip"
-                                                                        title="Agregar al Wish List"
-                                                                        onclick="wishlist.add('41');">
-                                                                        <i class="fa fa-heart"></i>
-                                                                    </button>
-                                                                    <button
-                                                                        class="btn btn-icon"
-                                                                        type="button"
-                                                                        data-toggle="tooltip"
-                                                                        title="Comparar este Producto"
-                                                                        onclick="compare.add('41');">
-                                                                        <i class="fa fa-exchange"></i>
-                                                                    </button>
-                                                                    <button
-                                                                        class="btn btn-icon btn-add"
-                                                                        type="button"
-                                                                        data-toggle="tooltip"
-                                                                        title="Agregar a carrito"
-                                                                        onclick="cart.add('41');">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="clear"></div>
-
-                                                                <div class="rating">
+                                                            <div class="rating">
+                                                                <span class="fa fa-stack">
+                                                                    <i class="fa fa-star fa-stack-2x active"></i>
+                                                                </span>
                                                                     <span class="fa fa-stack">
-                                                                        <i class="fa fa-star fa-stack-2x active"></i>
-                                                                    </span>
-                                                                        <span class="fa fa-stack">
-                                                                        <i class="fa fa-star fa-stack-2x active"></i>
-                                                                    </span>
-                                                                        <span class="fa fa-stack">
-                                                                        <i class="fa fa-star fa-stack-2x active"></i>
-                                                                    </span>
-                                                                        <span class="fa fa-stack">
-                                                                        <i class="fa fa-star fa-stack-2x active"></i>
-                                                                    </span>
-                                                                        <span class="fa fa-stack">
-                                                                        <i class="fa fa-star fa-stack-2x"></i>
-                                                                    </span>
-                                                                </div>
+                                                                    <i class="fa fa-star fa-stack-2x active"></i>
+                                                                </span>
+                                                                    <span class="fa fa-stack">
+                                                                    <i class="fa fa-star fa-stack-2x active"></i>
+                                                                </span>
+                                                                    <span class="fa fa-stack">
+                                                                    <i class="fa fa-star fa-stack-2x active"></i>
+                                                                </span>
+                                                                    <span class="fa fa-stack">
+                                                                    <i class="fa fa-star fa-stack-2x"></i>
+                                                                </span>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col-sm-12">
-                                                                <div class="quickview_description description">
-                                                                    <iframe
-                                                                            src="https://www.youtube.com/embed/6BQxvkC5juY?rel=0&amp;controls=0&amp;showinfo=0"
-                                                                            allowfullscreen=""
-                                                                            frameborder="0"
-                                                                            height="315"
-                                                                            width="560">
-                                                                    </iframe>
-                                                                    {{ product.description_long|raw }}
-                                                                </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="quickview_description description">
+                                                                <iframe
+                                                                    src="https://www.youtube.com/embed/3DGc0_EKStY?rel=0&amp;controls=0&amp;showinfo=0"
+                                                                    allowfullscreen=""
+                                                                    frameborder="0"
+                                                                    height="315"
+                                                                    width="560">
+                                                                </iframe>
+                                                                {{ product.description_long|raw }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="image">
-                                                    <a href="xxx">
-                                                        {% if product.files|first is empty %}
-                                                            <img
-                                                                alt="Lorem ipsum"
-                                                                title="Lorem ipsum"
-                                                                class="img-responsive"
-                                                                src="{{ asset('bundles/themes/default/image/catalog/default-270x270.png') }}" />
-                                                        {% else %}
-                                                            <img
-                                                                alt="Lorem ipsum"
-                                                                title="Lorem ipsum"
-                                                                class="img-responsive"
-                                                                src="{{ asset(product.files|first) }}" />
-                                                        {% endif %}
-                                                    </a>
-                                                </div>
-
-                                                <div class="caption">
-                                                    <div class="name">
-                                                        <a href="xxx">
-                                                            {{ product.name }}
-                                                        </a>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="fa fa-stack">
-                                                            <i class="fa fa-star fa-stack-2x active"></i>
-                                                        </span>
-                                                        <span class="fa fa-stack">
-                                                            <i class="fa fa-star fa-stack-2x active"></i>
-                                                        </span>
-                                                        <span class="fa fa-stack">
-                                                            <i class="fa fa-star fa-stack-2x active"></i>
-                                                        </span>
-                                                        <span class="fa fa-stack">
-                                                            <i class="fa fa-star fa-stack-2x active"></i>
-                                                        </span>
-                                                        <span class="fa fa-stack">
-                                                            <i class="fa fa-star fa-stack-2x"></i>
-                                                        </span>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span class="price-new">
-                                                            S/ {{ product.price }}
-                                                        </span>
-                                                        <span class="price-old">
-                                                            S/ {{ product.price + 36.78 }}
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="cart-button">
-                                                    <button
-                                                        class="btn btn-icon btn-add"
-                                                        type="button"
-                                                        data-toggle="tooltip"
-                                                        title="Add to Cart"
-                                                        onclick="cart.add('41');">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-
-                                                    <a class="btn btn-primary" href="xxx">
-                                                        <span>
-                                                            <i class="fa fa-chevron-right"></i> Detalles
-                                                        </span>
-                                                    </a>
-                                                </div>
-
-                                                <div class="clear"></div>
                                             </div>
+
+                                            <div class="image">
+                                                <a href="{{ path('frontend_product_detail', {slug: product.slug}) }}">
+                                                    {% if product.files|first is empty %}
+                                                        <img
+                                                            alt="Lorem ipsum"
+                                                            title="Lorem ipsum"
+                                                            class="img-responsive"
+                                                            src="{{ asset('bundles/themes/default/image/catalog/default-270x270.png') }}" />
+                                                    {% else %}
+                                                        <img
+                                                            alt="Lorem ipsum"
+                                                            title="Lorem ipsum"
+                                                            class="img-responsive"
+                                                            src="{{ asset(product.files|first) }}" />
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+
+                                            <div class="caption">
+                                                <div class="name">
+                                                    <a href="{{ path('frontend_product_detail', {slug: product.slug}) }}">
+                                                        {{ product.name }}
+                                                    </a>
+                                                </div>
+                                                <div class="rating">
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star fa-stack-2x active"></i>
+                                                    </span>
+                                                    <span class="fa fa-stack">
+                                                        <i class="fa fa-star fa-stack-2x"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="price">
+                                                    <span class="price-new">
+                                                        S/ {{ product.price }}
+                                                    </span>
+                                                    <span class="price-old">
+                                                        S/ {{ product.price + 36.78 }}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-button">
+                                                <button
+                                                    class="btn btn-icon btn-add"
+                                                    type="button"
+                                                    data-toggle="tooltip"
+                                                    title="Add to Cart"
+                                                    onclick="cart.add('41');">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+
+                                                <a class="btn btn-primary" href="{{ path('frontend_product_detail', {slug: product.slug}) }}">
+                                                    <span>
+                                                        <i class="fa fa-chevron-right"></i> Detalles
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                            <div class="clear"></div>
                                         </div>
+                                    </div>
 
-                                    {% endfor %}
+                                {% endfor %}
 
-                                    <div class="clear"></div>
+                                <div class="clear"></div>
 
-                                </div>
                             </div>
                         </div>
-                        {#FEATURED PRODUCTS#}
+                    </div>
+                    {#FEATURED PRODUCTS#}
 
 
-                        <div id="parallax_0" class="parallax" >
+                    <div id="parallax_0" class="parallax" >
 
-                            <div data-source-url="{{ asset('bundles/themes/default/image/catalog/parallax-1-2050x1450.jpg') }}" class="parallax-1">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <h3>Our <span>services</span></h3>
+                        <div data-source-url="{{ asset('bundles/themes/default/image/catalog/parallax-1-2050x1450.jpg') }}" class="parallax-1">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3>Nuestros <span>servicios</span></h3>
 
-                                            <div class="row">
+                                        <div class="row">
 
-                                                <div class="col-sm-6">
+                                            <div class="col-sm-6">
 
-                                                    <div class="services-box">
-                                                        <span class="drop">01</span>
-                                                        <p>
-                                                            <a href="xxx">
-                                                                Excepteur sint occaecat
-                                                            </a>
-                                                            Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="services-box">
-                                                        <span class="drop">02</span>
-                                                        <p>
-                                                            <a href="xxx">
-                                                                Excepteur sint occaecat
-                                                            </a>
-                                                            Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                        </p>
-                                                    </div>
-
+                                                <div class="services-box">
+                                                    <span class="drop">01</span>
+                                                    <p>
+                                                        <a href="xxx">
+                                                            Excepteur sint occaecat
+                                                        </a>
+                                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                    </p>
                                                 </div>
 
-                                                <div class="col-sm-6">
-
-                                                    <div class="services-box">
-                                                        <span class="drop">03</span>
-                                                        <p>
-                                                            <a href="xxxx">
-                                                                Excepteur sint occaecat
-                                                            </a>
-                                                            Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="services-box">
-                                                        <span class="drop">04</span>
-                                                        <p>
-                                                            <a href="xxx">
-                                                                Excepteur sint occaecat
-                                                            </a>
-                                                            Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                        </p>
-                                                    </div>
-
+                                                <div class="services-box">
+                                                    <span class="drop">02</span>
+                                                    <p>
+                                                        <a href="xxx">
+                                                            Excepteur sint occaecat
+                                                        </a>
+                                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                    </p>
                                                 </div>
 
                                             </div>
+
+                                            <div class="col-sm-6">
+
+                                                <div class="services-box">
+                                                    <span class="drop">03</span>
+                                                    <p>
+                                                        <a href="xxxx">
+                                                            Excepteur sint occaecat
+                                                        </a>
+                                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                    </p>
+                                                </div>
+
+                                                <div class="services-box">
+                                                    <span class="drop">04</span>
+                                                    <p>
+                                                        <a href="xxx">
+                                                            Excepteur sint occaecat
+                                                        </a>
+                                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="box_html top-info">
-                            <div class="top-block">
-                                <i class="fa fa-thumbs-o-up"></i>
-                                <p>
-                                    <a href="xxx">
-                                        satisfacción<br> 100% Garantizado
-                                    </a>
-                                </p>
-                            </div>
-
-                            <div class="top-block">
-                                <i class="fa fa-truck"></i>
-                                <p>
-                                    <a href="xxx">
-                                        Envío gratis<br> en pedidos superiores a $ 99
-                                    </a>
-                                </p>
-                            </div>
-
-                            <div class="top-block">
-                                <i class="fa fa-refresh"></i>
-                                <p>
-                                    <a href="xxx">
-                                        7 Días<br> Fácil retorno
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
-
-        <div class="content_bottom"></div>
-
-        <footer>
-            <div class="box_html map">
-                <div id="map"></div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="footer_box">
-                            <h5>Información</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Nosotros
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Entrega
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Política de privacidad
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Términos &amp; Condiciones
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="footer_box">
-                            <h5>Customer Service</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Contáctenos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Devoluciones
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Site Map
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="footer_box">
-                            <h5>Extras</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Marcas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Gift Cards
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Afiliados
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Especiales
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="footer_box">
-                            <h5>Mi cuenta</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Mi cuenta
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Historial de pedidos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Lista de deseos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="xxx">
-                                        <i class="fa fa-angle-right"></i> Newsletter
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <h5>Síguenos</h5>
-                        <ul class="list-unstyled social">
-                            <li>
-                                <a data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/login">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a data-toggle="tooltip" title="Twitter" href="https://twitter.com/">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a data-toggle="tooltip" title="RSS" href="">
-                                    <i class="fa fa-rss"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="copyright">
-                            Powered By <a href="http://system.tianos.com">Tianos.com</a>
-                            <br /> Tianos &copy; {{ "now"|date("Y") }}
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </footer>
-
     </div>
-    {#PAGE#}
+
+    <div class="content_bottom"></div>
+
+    <div class="box_html map">
+        <div id="map"></div>
+    </div>
 
 {% endblock %}

@@ -6,14 +6,15 @@ services:
         tags:
             - { name: tianos.frontend.controller.default, alias: tianos.frontend.controller.default }
 
-    tianos.frontend.controller.generate.thumbnail:
-        class: Bundle\FrontendBundle\Controller\GenerateThumbnailController
+    tianos.frontend.controller.product:
+        class: Bundle\FrontendBundle\Controller\ProductController
         arguments: [ Bundle\ResourceBundle\Factory\RequestConfigurationFactoryInterface ]
         tags:
-            - { name: tianos.frontend.controller.generate.thumbnail, alias: tianos.frontend.controller.generate.thumbnail }
+            - { name: tianos.frontend.controller.product, alias: tianos.frontend.controller.product }
 
-    tianos.frontend.controller.google.files:
-        class: Bundle\FrontendBundle\Controller\GoogleFilesController
+    tianos.frontend.controller.category:
+        class: Bundle\FrontendBundle\Controller\CategoryController
         arguments: [ Bundle\ResourceBundle\Factory\RequestConfigurationFactoryInterface ]
         tags:
-            - { name: tianos.frontend.controller.google.files, alias: tianos.frontend.controller.google.files }
+            - { name: tianos.frontend.controller.category, alias: tianos.frontend.controller.category }
+

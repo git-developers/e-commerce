@@ -95,9 +95,500 @@
 
     <body class="">
 
-        {% block content %}
+        {#SWIPE MENU#}
+        <div class="swipe">
+            <div class="swipe-menu">
 
-        {% endblock %}
+                <ul>
+                    <li>
+                        <a href="xxx" title="My Account">
+                            <i class="fa fa-user"></i>
+                            <span>My Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            <i class="fa fa-user"></i> Crear una cuenta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxxx">
+                            <i class="fa fa-lock"></i>Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx" id="wishlist-total2" title="Wish">
+                            <i class="fa fa-heart"></i>
+                            <span>Wish List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx" title="Shopping Cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Shopping Cart</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx" title="Checkout">
+                            <i class="fa fa-share"></i>
+                            <span>Checkout</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="foot">
+                    <li>
+                        <a href="xxx">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Delivery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxxx">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxxx">
+                            Terms &amp; Conditions
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="foot foot-1">
+                    <li>
+                        <a href="xxx">
+                            Contact Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Returns
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Site Map
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="foot foot-2">
+                    <li>
+                        <a href="xxx">
+                            Brands
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Gift Vouchers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Affiliates
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Specials
+                        </a>
+                    </li>
+                </ul>
+                <ul class="foot foot-3">
+                    <li>
+                        <a href="xxx">
+                            Order History
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xxx">
+                            Newsletter
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {#SWIPE MENU#}
+
+
+        <div id="page">
+
+            <div class="shadow"></div>
+
+            <div class="toprow-1">
+                <a class="swipe-control" href="#">
+                    <i class="fa fa-align-justify"></i>
+                </a>
+            </div>
+
+            <nav id="top" class="clearfix">
+                <div class="container">
+                    <div class="top-panel"></div>
+
+                    <div class="top-button">
+                        <div class="box-currency">
+
+                            <form
+                                action="xxx"
+                                method="post"
+                                enctype="multipart/form-data" id="currency">
+
+                                <div class="btn-group">
+                                    <span class="dropdown-toggle" data-toggle="dropdown">
+                                        $ <span class="hidden-xs hidden-sm hidden-md hidden">Currency</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                    <ul class="dropdown-menu  pull-right">
+                                        <li>
+                                            <button class="currency-select" type="button" name="EUR">
+                                                € Euro
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="currency-select" type="button" name="GBP">
+                                                £ Pound Sterling
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="currency-select" type="button" name="USD">
+                                                $ US Dollar
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <input type="hidden" name="code" value="" />
+                                <input type="hidden" name="redirect" value="xxx" />
+                            </form>
+
+                        </div>
+
+                        <div class="pull-right box-language">
+
+                            <form action="xxx" method="post" enctype="multipart/form-data" id="language">
+                                <div class="btn-group pull-right">
+                            <span class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/gb.png') }}" alt="English" title="English">
+                                en
+                                <span class="hidden-xs hidden-sm hidden-md hidden">Language</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="en">
+                                                <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/gb.png') }}" alt="English" title="English" /> English
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="de">
+                                                <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/de.png') }}" alt="Deutsch" title="Deutsch" /> Deutsch
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="ru">
+                                                <img class="hidden" src="{{ asset('bundles/themes/default/image/flags/ru.png') }}" alt="Русский" title="Русский" /> Русский
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input type="hidden" name="code" value="" />
+                                <input type="hidden" name="redirect" value="xxx" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <header>
+                <div class="container">
+                    <div id="logo">
+                        <a href="{{ path('frontend_default_index') }}">
+                            <img
+                                src="{{ asset('bundles/themes/default/image/logo.png') }}"
+                                title="Tyres"
+                                alt="Tyres"
+                                class="img-responsive" />
+                        </a>
+                    </div>
+                    <div class="box-right">
+                        <div class="box-cart">
+                            <div id="cart">
+
+                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="dropdown-toggle">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <strong>Cart: </strong>
+                                    <span id="cart-total"> 0 item(s) </span>
+                                    <span id="cart-total2">0</span>
+                                </button>
+
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <p class="text-center">Your shopping cart is empty!</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="log-button">
+                            <a href="xxx">
+                                <i class="fa fa-unlock-alt"></i>
+                                <span>Login</span>
+                            </a>
+                            <a href="xxx" title="Create an account">
+                                <i class="fa fa-user"></i>
+                                <span>Crea una cuenta</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="nav__primary">
+                <div class="container">
+                    <div class="menu-shadow">
+                        <div id="menu-gadget">
+                            <div id="menu-icon">Categorías</div>
+
+                            {% block category_tree %}
+
+                            {% endblock %}
+
+                        </div>
+
+                        <div id="top-links" class="nav">
+                            <ul class="list-inline">
+                                <li class="first">
+                                    <a href="xxx" title="Home">
+                                        <i class="fa fa-home"></i>
+                                        <span>Inicio</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="xxx" id="wishlist-total" title="Wish List">
+                                        <i class="fa fa-heart"></i>
+                                        <span>Wish List <span>0</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="xx" title="My Account">
+                                        <i class="fa fa-user"></i>
+                                        <span>Mi Cuenta</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="xxx" title="Shopping Cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Carrito de compras</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="xxx" title="Checkout">
+                                        <i class="fa fa-share"></i>
+                                        <span>Checkout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="search">
+                            <input type="text" name="search" value="" placeholder="" />
+                            <i class="fa fa-search"></i>
+                            <button type="button" class="button-search">
+                                <i class="fa fa-angle-double-right"></i>
+                            </button>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <p id="back-top">
+                <a href="#top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </p>
+
+            {% block content %}
+
+            {% endblock %}
+
+            <div class="box_html top-info">
+                <div class="top-block">
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <p>
+                        <a href="xxx">
+                            satisfacción<br> 100% Garantizado 77
+                        </a>
+                    </p>
+                </div>
+
+                <div class="top-block">
+                    <i class="fa fa-truck"></i>
+                    <p>
+                        <a href="xxx">
+                            Envío gratis<br> en pedidos superiores a $ 99
+                        </a>
+                    </p>
+                </div>
+
+                <div class="top-block">
+                    <i class="fa fa-refresh"></i>
+                    <p>
+                        <a href="xxx">
+                            7 Días<br> Fácil retorno
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <footer>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="footer_box">
+                                <h5>Información</h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Nosotros
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Entrega
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Política de privacidad
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Términos &amp; Condiciones
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="footer_box">
+                                <h5>Customer Service</h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Contáctenos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Devoluciones
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Site Map
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="footer_box">
+                                <h5>Extras</h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Marcas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Gift Cards
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Afiliados
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Especiales
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="footer_box">
+                                <h5>Mi cuenta</h5>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Mi cuenta
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Historial de pedidos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Lista de deseos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="xxx">
+                                            <i class="fa fa-angle-right"></i> Newsletter
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <h5>Síguenos</h5>
+                            <ul class="list-unstyled social">
+                                <li>
+                                    <a data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/login">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tooltip" title="Twitter" href="https://twitter.com/">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tooltip" title="RSS" href="">
+                                        <i class="fa fa-rss"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="copyright">
+                                Powered By <a href="http://system.tianos.com">Tianos.com</a>
+                                <br /> &copy; {{ "now"|date("Y") }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+
+        </div>
 
     </body>
 

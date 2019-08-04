@@ -115,9 +115,37 @@ class CategoryRepository extends TianosEntityRepository implements CategoryRepos
 
     public function findAllByParent($parent): array
     {
+	    $id = null;
+	    
+    	if (is_array($parent)) {
+		    $id = isset($parent['id']) ? $parent['id'] : null;
+	    } else {
+		    $id = $parent->getId();
+	    }
     	
-    	$id = isset($parent['id']) ? $parent['id'] : null;
-    	
+        $em = $this->getEntityManager();
+        $dql = "
+            SELECT
+            child.id,
+            child.code,
+            child.name,
+            child.slug
+            FROM CategoryBundle:Category child
+            WHERE
+            child.isActive = :active AND
+            child.category = :parent
+            ORDER BY child.id DESC
+            ";
+
+        $query = $em->createQuery($dql);
+        $query->setParameter('active', 1);
+        $query->setParameter('parent', $id);
+
+        return $query->getResult();
+    }
+
+    public function findAllByParentId($parentId): array
+    {
         $em = $this->getEntityManager();
         $dql = "
             SELECT
@@ -133,7 +161,7 @@ class CategoryRepository extends TianosEntityRepository implements CategoryRepos
 
         $query = $em->createQuery($dql);
         $query->setParameter('active', 1);
-        $query->setParameter('parent', $id);
+        $query->setParameter('parent', $parentId);
 
         return $query->getResult();
     }
@@ -155,6 +183,27 @@ class CategoryRepository extends TianosEntityRepository implements CategoryRepos
         $query = $em->createQuery($dql);
         $query->setParameter('active', 1);
         $query->setParameter('id', $id);
+
+        return $query->getOneOrNullResult();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findBySlug($slug)
+    {
+        $em = $this->getEntityManager();
+        $dql = "
+            SELECT category
+            FROM CategoryBundle:Category category
+            WHERE
+            category.slug = :slug AND
+            category.isActive = :active
+            ";
+
+        $query = $em->createQuery($dql);
+        $query->setParameter('active', 1);
+        $query->setParameter('slug', $slug);
 
         return $query->getOneOrNullResult();
     }

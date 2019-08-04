@@ -60,12 +60,20 @@ class Category
     /**
      * @var string
      *
-     * @JMSS\Groups({"crud", "tree", "api"})
+     * @JMSS\Groups({
+     *     "crud",
+     *     "tree",
+     *     "api"
+     * })
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @JMSS\Groups({
+     *     "tree",
+     * })
      */
     private $slug;
 

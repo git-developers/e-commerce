@@ -34,6 +34,27 @@ class ProductRepository extends TianosEntityRepository implements ProductReposit
     /**
      * {@inheritdoc}
      */
+    public function findBySlug($slug)
+    {
+        $em = $this->getEntityManager();
+        $dql = "
+            SELECT product
+            FROM ProductBundle:Product product
+            WHERE
+            product.slug = :slug AND
+            product.isActive = :active
+            ";
+
+        $query = $em->createQuery($dql);
+        $query->setParameter('active', 1);
+        $query->setParameter('slug', $slug);
+
+        return $query->getOneOrNullResult();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findAll(): array
     {
         $em = $this->getEntityManager();

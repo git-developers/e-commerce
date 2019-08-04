@@ -55,7 +55,7 @@ class DoctrineListenerService extends BaseDoctrineListenerService implements Eve
 
         if ($entity instanceof Product){
             $name = $entity->getName();
-            $entity->setSlug($this->slugify($name));
+            $entity->setSlug(uniqid() . '-' . $this->slugify($name));
             $entity->setCreatedAt($this->setupCreatedAt($entity));
 
             return;
